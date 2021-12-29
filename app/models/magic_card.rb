@@ -1,0 +1,2 @@
+class MagicCard < ApplicationRecord
+end

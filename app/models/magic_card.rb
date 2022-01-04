@@ -1,6 +1,10 @@
 class MagicCard < ApplicationRecord
   belongs_to :boxset
 
+  has_many :printings
+
+  has_one :card_price
+
   has_many :magic_card_artists
   has_many :artists, through: :magic_card_artists
 

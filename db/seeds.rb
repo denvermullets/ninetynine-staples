@@ -51,9 +51,9 @@ first_card = MagicCard.create(boxset_id: first_boxset.id, name: 'Damn', rarity: 
 second_card = MagicCard.create(boxset_id: second_boxset.id, name: 'Wonder', rarity: 'mythic', has_foil: true, has_non_foil: true, is_reprint: false)
 third_card = MagicCard.create(boxset_id: third_boxset.id, name: 'Chatterfang, General of Squirrels', rarity: 'rare', has_foil: true, has_non_foil: true, is_reprint: false)
 
-Printing.create(magic_card_id: first_card.id, code: 'MH1')
-Printing.create(magic_card_id: second_card.id, code: 'MH2')
-Printing.create(magic_card_id: third_card.id, code: 'VOW')
+Printing.create(magic_card_id: first_card.id, boxset_code: 'MH1')
+Printing.create(magic_card_id: second_card.id, boxset_code: 'MH2')
+Printing.create(magic_card_id: third_card.id, boxset_code: 'VOW')
 
 MagicCardType.create(magic_card_id: first_card.id, card_type_id: first_cardtype.id)
 MagicCardType.create(magic_card_id: second_card.id, card_type_id: second_cardtype.id)

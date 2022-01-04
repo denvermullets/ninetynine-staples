@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(version: 2022_01_02_185716) do
 
   create_table "printings", force: :cascade do |t|
     t.bigint "magic_card_id"
-    t.string "code"
+    t.string "boxset_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["magic_card_id"], name: "index_printings_on_magic_card_id"

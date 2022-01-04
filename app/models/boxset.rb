@@ -1,0 +1,2 @@
+class Boxset < ApplicationRecord
+end

@@ -89,16 +89,21 @@ ActiveRecord::Schema.define(version: 2022_01_02_185716) do
   end
 
   create_table "magic_card_keywords", force: :cascade do |t|
-    t.string "keyword"
+    t.bigint "magic_card_id"
+    t.bigint "keyword_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["keyword_id"], name: "index_magic_card_keywords_on_keyword_id"
+    t.index ["magic_card_id"], name: "index_magic_card_keywords_on_magic_card_id"
   end
 
   create_table "magic_card_rulings", force: :cascade do |t|
-    t.date "ruling_date"
-    t.string "ruling"
+    t.bigint "magic_card_id"
+    t.bigint "ruling_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["magic_card_id"], name: "index_magic_card_rulings_on_magic_card_id"
+    t.index ["ruling_id"], name: "index_magic_card_rulings_on_ruling_id"
   end
 
   create_table "magic_card_sub_types", force: :cascade do |t|

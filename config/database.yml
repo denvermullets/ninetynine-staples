@@ -83,4 +83,7 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  # url: <%= ENV['DATABASE_URL'] %>
+  database: staples99_api_production
+  username: staples99_api
+  password: <%= ENV["STAPLES99_API_DATABASE_PASSWORD"] %>

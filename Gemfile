@@ -6,12 +6,10 @@ ruby '3.0.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 7.0.0'
 
-# Use postgresql as the database for Active Record
+gem 'httparty'
 gem 'pg', '~> 1.1'
-
-# Use the Puma web server [https://github.com/puma/puma]
-gem 'puma', '~> 5.0'
 gem 'pry-byebug'
+gem 'puma', '~> 5.0'
 gem 'rubocop'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]

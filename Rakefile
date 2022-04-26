@@ -81,7 +81,9 @@ namespace :cards do
       MagicCardKeyword.create(magic_card: card, keyword: keyword)
     end
 
+    puts 'loading AllPrintings.json from mtgjson.com'
     source = URI.open('https://mtgjson.com/api/v5/AllPrintings.json')
+    puts 'completed loading AllPrintings.json from mtgjson.com'
     all_info = JSON.parse(source.read)['data']
 
     all_info.each do |key, value|

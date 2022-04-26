@@ -23,9 +23,7 @@ ActiveRecord::Schema.define(version: 2022_01_02_185716) do
 
   create_table "boxsets", force: :cascade do |t|
     t.string "code"
-    t.integer "mcm_id"
     t.string "name"
-    t.string "mcm_name"
     t.date "release_date"
     t.integer "base_set_size"
     t.integer "total_set_size"
@@ -62,8 +60,8 @@ ActiveRecord::Schema.define(version: 2022_01_02_185716) do
   end
 
   create_table "magic_card_artists", force: :cascade do |t|
-    t.bigint "magic_card_id"
-    t.bigint "artist_id"
+    t.bigint "magic_card_id", null: false
+    t.bigint "artist_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["artist_id"], name: "index_magic_card_artists_on_artist_id"
@@ -71,8 +69,8 @@ ActiveRecord::Schema.define(version: 2022_01_02_185716) do
   end
 
   create_table "magic_card_color_idents", force: :cascade do |t|
-    t.bigint "magic_card_id"
-    t.bigint "color_id"
+    t.bigint "magic_card_id", null: false
+    t.bigint "color_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["color_id"], name: "index_magic_card_color_idents_on_color_id"
@@ -80,8 +78,8 @@ ActiveRecord::Schema.define(version: 2022_01_02_185716) do
   end
 
   create_table "magic_card_colors", force: :cascade do |t|
-    t.bigint "magic_card_id"
-    t.bigint "color_id"
+    t.bigint "magic_card_id", null: false
+    t.bigint "color_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["color_id"], name: "index_magic_card_colors_on_color_id"
@@ -107,8 +105,8 @@ ActiveRecord::Schema.define(version: 2022_01_02_185716) do
   end
 
   create_table "magic_card_sub_types", force: :cascade do |t|
-    t.bigint "magic_card_id"
-    t.bigint "sub_type_id"
+    t.bigint "magic_card_id", null: false
+    t.bigint "sub_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["magic_card_id"], name: "index_magic_card_sub_types_on_magic_card_id"
@@ -116,8 +114,8 @@ ActiveRecord::Schema.define(version: 2022_01_02_185716) do
   end
 
   create_table "magic_card_super_types", force: :cascade do |t|
-    t.bigint "magic_card_id"
-    t.bigint "super_type_id"
+    t.bigint "magic_card_id", null: false
+    t.bigint "super_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["magic_card_id"], name: "index_magic_card_super_types_on_magic_card_id"
@@ -125,8 +123,8 @@ ActiveRecord::Schema.define(version: 2022_01_02_185716) do
   end
 
   create_table "magic_card_types", force: :cascade do |t|
-    t.bigint "magic_card_id"
-    t.bigint "card_type_id"
+    t.bigint "magic_card_id", null: false
+    t.bigint "card_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["card_type_id"], name: "index_magic_card_types_on_card_type_id"

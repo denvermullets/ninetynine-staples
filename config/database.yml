@@ -23,7 +23,9 @@ default: &default
 
 development:
   <<: *default
-  database: staples99_api_development
+  # database: staples99_api_development
+  database: staples
+  # url: <%= ENV['DATABASE_URL'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -81,6 +83,4 @@ test:
 #
 production:
   <<: *default
-  database: staples99_api_production
-  username: staples99_api
-  password: <%= ENV["STAPLES99_API_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

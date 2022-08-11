@@ -7,13 +7,14 @@ AllCops:
     - 'db/**/**'
     - 'node_modules/**/**'
     - 'vendor/**/**'
+    - 'config/sorbet/*'
 
 Lint/UselessAssignment:
   Exclude:
     - 'local_gems/*/bin/*'
 
 Metrics/BlockLength:
-  Exclude:
+  Exclude:b
     - 'config/routes.rb'
     - 'spec/**/*.rb'
     - 'config/environments/**'

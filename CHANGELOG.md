@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.0.0...v1.1.0) (2022-08-11)
+
+
+### Features
+
+* **core:** update ruby/rails to latest versions ([700a62c](https://github.com/denvermullets/ninetynine-staples/commit/700a62c531490404a655f045fa14a0d835520889))
+
 # 1.0.0 (2022-08-11)
 
 

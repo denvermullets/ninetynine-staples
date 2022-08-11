@@ -14,7 +14,7 @@ Lint/UselessAssignment:
     - 'local_gems/*/bin/*'
 
 Metrics/BlockLength:
-  Exclude:b
+  Exclude:
     - 'config/routes.rb'
     - 'spec/**/*.rb'
     - 'config/environments/**'

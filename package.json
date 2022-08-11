@@ -1,7 +1,6 @@
 {
-  "name": "ninetynine-staples-api",
+  "name": "ninetynine-staples",
   "version": "0.0.1",
-  "private": false,
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/commit-analyzer": "^9.0.2",

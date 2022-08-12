@@ -9,6 +9,10 @@ AllCops:
     - 'vendor/**/**'
     - 'config/sorbet/*'
 
+# disable class/module comment descriptions
+Style/Documentation:
+  Enabled: false
+
 Lint/UselessAssignment:
   Exclude:
     - 'local_gems/*/bin/*'

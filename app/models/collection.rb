@@ -1,4 +1,4 @@
-class MagicCardKeyword < ApplicationRecord
+class Collection < ApplicationRecord
   belongs_to :player
 
   has_many :collection_magic_cards

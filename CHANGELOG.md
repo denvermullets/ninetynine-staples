@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.1.0...v1.2.0) (2022-08-14)
+
+
+### Features
+
+* **db:** add players, collections, and decks tables w/joins, nin-10 ([#15](https://github.com/denvermullets/ninetynine-staples/issues/15)) ([0577875](https://github.com/denvermullets/ninetynine-staples/commit/057787507d73a152255f325a3af93b6cb30e7d8c))
+
 # [1.1.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.0.0...v1.1.0) (2022-08-11)
 
 

@@ -5,7 +5,6 @@ module Api
     class MagicCardsController < ApplicationController
       extend T::Sig
 
-      # sig { returns(T::Array[JSON::Ext::Generator::GeneratorMethods::Object]) }
       sig { returns(String) }
       def index
         all_cards = MagicCard.where(id: 1..100)

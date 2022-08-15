@@ -304,54 +304,21 @@ class Byebug::ThreadsTable; end
 class Pry
   extend ::Forwardable
 
-  # Create a new {Pry} instance.
-  #
-  # @option options
-  # @option options
-  # @option options
-  # @option options
-  # @option options
-  # @option options
-  # @option options
-  # @option options
-  # @option options
-  # @param options [Hash]
-  # @return [Pry] a new instance of Pry
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:81
   def initialize(options = T.unsafe(nil)); end
 
-  # Add a sticky local to this Pry instance.
-  # A sticky local is a local that persists between all bindings in a session.
-  #
-  # @param name [Symbol] The name of the sticky local.
-  # @yield The block that defines the content of the local. The local
-  #   will be refreshed at each tick of the repl loop.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:212
   def add_sticky_local(name, &block); end
 
-  # Returns the value of attribute backtrace.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:35
   def backtrace; end
 
-  # Sets the attribute backtrace
-  #
-  # @param value the value to set the attribute backtrace to.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:35
   def backtrace=(_arg0); end
 
-  # Returns the value of attribute binding_stack.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:32
   def binding_stack; end
 
-  # Sets the attribute binding_stack
-  #
-  # @param value the value to set the attribute binding_stack to.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:32
   def binding_stack=(_arg0); end
 
@@ -367,43 +334,21 @@ class Pry
   # source://RUBY_ROOT/forwardable.rb:229
   def commands=(*args, **_arg1, &block); end
 
-  # Generate completions.
-  #
-  # @param str [String] What the user has typed so far
-  # @return [Array<String>] Possible completions
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:145
   def complete(str); end
 
-  # Returns the value of attribute config.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:50
   def config; end
 
-  # The currently active `Binding`.
-  #
-  # @return [Binding] The currently active `Binding` for the session.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:124
   def current_binding; end
 
-  # The currently active `Binding`.
-  # support previous API
-  #
-  # @return [Binding] The currently active `Binding` for the session.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:124
   def current_context; end
 
-  # Returns the value of attribute custom_completions.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:33
   def custom_completions; end
 
-  # Sets the attribute custom_completions
-  #
-  # @param value the value to set the attribute custom_completions to.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:33
   def custom_completions=(_arg0); end
 
@@ -413,39 +358,12 @@ class Pry
   # source://RUBY_ROOT/forwardable.rb:229
   def editor=(*args, **_arg1, &block); end
 
-  # Pass a line of input to Pry.
-  #
-  # This is the equivalent of `Binding#eval` but with extra Pry!
-  #
-  # In particular:
-  # 1. Pry commands will be executed immediately if the line matches.
-  # 2. Partial lines of input will be queued up until a complete expression has
-  #    been accepted.
-  # 3. Output is written to `#output` in pretty colours, not returned.
-  #
-  # Once this method has raised an exception or returned false, this instance
-  # is no longer usable. {#exit_value} will return the session's breakout
-  # value if applicable.
-  #
-  # @option options
-  # @param line [String?] The line of input; `nil` if the user types `<Ctrl-D>`
-  # @param options [Hash] a customizable set of options
-  # @raise [Exception] If the user uses the `raise-up` command, this method
-  #   will raise that exception.
-  # @return [Boolean] Is Pry ready to accept more input?
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:255
   def eval(line, options = T.unsafe(nil)); end
 
-  # Returns the value of attribute eval_string.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:34
   def eval_string; end
 
-  # Sets the attribute eval_string
-  #
-  # @param value the value to set the attribute eval_string to.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:34
   def eval_string=(_arg0); end
 
@@ -458,20 +376,9 @@ class Pry
   # source://RUBY_ROOT/forwardable.rb:229
   def exception_handler=(*args, **_arg1, &block); end
 
-  # Execute the specified hook.
-  # If executing a hook raises an exception, we log that and then continue sucessfully.
-  # To debug such errors, use the global variable $pry_hook_error, which is set as a
-  # result.
-  #
-  # @param name [Symbol] The hook name to execute
-  # @param args [*Object] The arguments to pass to the hook
-  # @return [Object, Exception] The return value of the hook or the exception raised
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:394
   def exec_hook(name, *args, &block); end
 
-  # Returns the value of attribute exit_value.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:42
   def exit_value; end
 
@@ -487,18 +394,9 @@ class Pry
   # source://RUBY_ROOT/forwardable.rb:229
   def hooks=(*args, **_arg1, &block); end
 
-  # Injects a local variable into the provided binding.
-  #
-  # @param name [String] The name of the local to inject.
-  # @param value [Object] The value to set the local to.
-  # @param binding [Binding] The binding to set the local on.
-  # @return [Object] The value the local was set to.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:173
   def inject_local(name, value, binding); end
 
-  # Inject all the sticky locals into the current binding.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:201
   def inject_sticky_locals!; end
 
@@ -508,114 +406,57 @@ class Pry
   # source://RUBY_ROOT/forwardable.rb:229
   def input=(*args, **_arg1, &block); end
 
-  # @since v0.12.0
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:45
   def input_ring; end
 
-  # Returns the value of attribute last_dir.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:39
   def last_dir; end
 
-  # Sets the attribute last_dir
-  #
-  # @param value the value to set the attribute last_dir to.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:39
   def last_dir=(_arg0); end
 
-  # Returns the value of attribute last_exception.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:41
   def last_exception; end
 
-  # Set the last exception for a session.
-  #
-  # @param exception [Exception] The last exception.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:418
   def last_exception=(exception); end
 
-  # Returns the value of attribute last_file.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:38
   def last_file; end
 
-  # Sets the attribute last_file
-  #
-  # @param value the value to set the attribute last_file to.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:38
   def last_file=(_arg0); end
 
-  # Returns the value of attribute last_result.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:37
   def last_result; end
 
-  # Sets the attribute last_result
-  #
-  # @param value the value to set the attribute last_result to.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:37
   def last_result=(_arg0); end
 
-  # @return [Boolean] True if the last result is an exception that was raised,
-  #   as opposed to simply an instance of Exception (like the result of
-  #   Exception.new)
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:440
   def last_result_is_exception?; end
 
-  # @return [Integer] The maximum amount of objects remembered by the inp and
-  #   out arrays. Defaults to 100.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:190
   def memory_size; end
 
   # source://pry-0.13.1/lib/pry/pry_instance.rb:195
   def memory_size=(size); end
 
-  # Returns an output device
-  #
-  # @example
-  #   pry_instance.output.puts "ohai!"
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:538
   def output; end
 
   # source://RUBY_ROOT/forwardable.rb:229
   def output=(*args, **_arg1, &block); end
 
-  # @since v0.12.0
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:48
   def output_ring; end
 
-  # Returns the currently configured pager
-  #
-  # @example
-  #   pry_instance.pager.page text
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:530
   def pager; end
 
   # source://RUBY_ROOT/forwardable.rb:229
   def pager=(*args, **_arg1, &block); end
 
-  # Pops the current prompt off of the prompt stack. If the prompt you are
-  # popping is the last prompt, it will not be popped. Use this to restore the
-  # previous prompt.
-  #
-  # @example
-  #   pry = Pry.new(prompt: Pry::Prompt[:my_prompt1])
-  #   pry.push_prompt(Pry::Prompt[:my_prompt2])
-  #   pry.pop_prompt # => prompt2
-  #   pry.pop_prompt # => prompt1
-  #   pry.pop_prompt # => prompt1
-  # @return [Pry::Prompt] the prompt being popped
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:522
   def pop_prompt; end
 
@@ -625,66 +466,27 @@ class Pry
   # source://RUBY_ROOT/forwardable.rb:229
   def print=(*args, **_arg1, &block); end
 
-  # If the given line is a valid command, process it in the context of the
-  # current `eval_string` and binding.
-  #
-  # @param val [String] The line to process.
-  # @return [Boolean] `true` if `val` is a command, `false` otherwise
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:325
   def process_command(val); end
 
-  # Same as process_command, but outputs exceptions to `#output` instead of
-  # raising.
-  #
-  # @param val [String] The line to process.
-  # @return [Boolean] `true` if `val` is a command, `false` otherwise
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:360
   def process_command_safely(val); end
 
-  # This is the prompt at the top of the prompt stack.
-  #
-  # @return [Pry::Prompt] the current prompt
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:101
   def prompt; end
 
-  # Sets the Pry prompt.
-  #
-  # @param new_prompt [Pry::Prompt]
-  # @return [void]
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:108
   def prompt=(new_prompt); end
 
-  # Push a binding for the given object onto the stack. If this instance is
-  # currently stopped, mark it as usable again.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:131
   def push_binding(object); end
 
-  # Initialize this instance by pushing its initial context into the binding
-  # stack. If no target is given, start at the top level.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:118
   def push_initial_binding(target = T.unsafe(nil)); end
 
-  # Pushes the current prompt onto a stack that it can be restored from later.
-  # Use this if you wish to temporarily change the prompt.
-  #
-  # @example
-  #   push_prompt(Pry::Prompt[:my_prompt])
-  # @param new_prompt [Pry::Prompt]
-  # @return [Pry::Prompt] new_prompt
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:506
   def push_prompt(new_prompt); end
 
-  # Convenience accessor for the `quiet` config key.
-  #
-  # @return [Boolean]
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:592
   def quiet?; end
 
@@ -694,102 +496,44 @@ class Pry
   # source://pry-0.13.1/lib/pry/pry_instance.rb:586
   def raise_up!(*args); end
 
-  # Raise an exception out of Pry.
-  #
-  # See Kernel#raise for documentation of parameters.
-  # See rb_make_exception for the inbuilt implementation.
-  #
-  # This is necessary so that the raise-up command can tell the
-  # difference between an exception the user has decided to raise,
-  # and a mistake in specifying that exception.
-  #
-  # (i.e. raise-up RunThymeError.new should not be the same as
-  #  raise-up NameError, "unititialized constant RunThymeError")
-  #
-  # @raise [TypeError]
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:554
   def raise_up_common(force, *args); end
 
-  # Potentially deprecated. Use `Pry::REPL.new(pry, :target => target).start`
-  # (If nested sessions are going to exist, this method is fine, but a goal is
-  # to come up with an alternative to nested sessions altogether.)
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:282
   def repl(target = T.unsafe(nil)); end
 
-  # Reset the current eval string. If the user has entered part of a multiline
-  # expression, this discards that input.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:231
   def reset_eval_string; end
 
-  # Run the specified command.
-  #
-  # @example
-  #   pry_instance.run_command("ls -m")
-  # @param val [String] The command (and its params) to execute.
-  # @return [Pry::Command::VOID_VALUE]
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:375
   def run_command(val); end
 
-  # Returns the appropriate prompt to use.
-  #
-  # @return [String] The prompt.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:453
   def select_prompt; end
 
-  # Set the last result of an eval.
-  # This method should not need to be invoked directly.
-  #
-  # @param result [Object] The result.
-  # @param code [String] The code that was run.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:409
   def set_last_result(result, code = T.unsafe(nil)); end
 
-  # Whether the print proc should be invoked.
-  # Currently only invoked if the output is not suppressed.
-  #
-  # @return [Boolean] Whether the print proc should be invoked.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:447
   def should_print?; end
 
-  # Output the result or pass to an exception handler (if result is an exception).
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:298
   def show_result(result); end
 
   # source://pry-0.13.1/lib/pry/pry_instance.rb:216
   def sticky_locals; end
 
-  # Returns the value of attribute suppress_output.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:36
   def suppress_output; end
 
-  # Sets the attribute suppress_output
-  #
-  # @param value the value to set the attribute suppress_output to.
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:36
   def suppress_output=(_arg0); end
 
-  # Update Pry's internal state after evalling code.
-  # This method should not need to be invoked directly.
-  #
-  # @param code [String] The code we just eval'd
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:428
   def update_input_history(code); end
 
   private
 
-  # Force `eval_string` into the encoding of `val`. [Issue #284]
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:680
   def ensure_correct_encoding!(val); end
 
@@ -799,54 +543,28 @@ class Pry
   # source://pry-0.13.1/lib/pry/pry_instance.rb:598
   def handle_line(line, options); end
 
-  # the array that the prompt stack is stored in
-  #
   # source://pry-0.13.1/lib/pry/pry_instance.rb:697
   def prompt_stack; end
 
   class << self
-    # Convert the given object into an instance of `Pry::Code`, if it isn't
-    # already one.
-    #
-    # @param obj [Code, Method, UnboundMethod, Proc, Pry::Method, String, Array, IO]
-    #
     # source://pry-0.13.1/lib/pry/code.rb:12
     def Code(obj); end
 
-    # If the given object is a `Pry::Method`, return it unaltered. If it's
-    # anything else, return it wrapped in a `Pry::Method` instance.
-    #
     # source://pry-0.13.1/lib/pry/method.rb:9
     def Method(obj); end
 
-    # If the given object is a `Pry::WrappedModule`, return it unaltered. If it's
-    # anything else, return it wrapped in a `Pry::WrappedModule` instance.
-    #
     # source://pry-0.13.1/lib/pry/wrapped_module.rb:7
     def WrappedModule(obj); end
 
     # source://pry-0.13.1/lib/pry/pry_class.rb:291
     def auto_resize!; end
 
-    # Return a `Binding` object for `target` or return `target` if it is
-    # already a `Binding`.
-    # In the case where `target` is top-level then return `TOPLEVEL_BINDING`
-    #
-    # @param target [Object] The object to get a `Binding` object for.
-    # @return [Binding] The `Binding` object.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:346
     def binding_for(target); end
 
-    # Returns the value of attribute cli.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:22
     def cli; end
 
-    # Sets the attribute cli
-    #
-    # @param value the value to set the attribute cli to.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:22
     def cli=(_arg0); end
 
@@ -862,58 +580,30 @@ class Pry
     # source://RUBY_ROOT/forwardable.rb:229
     def commands=(*args, **_arg1, &block); end
 
-    # Returns the value of attribute config.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:25
     def config; end
 
-    # Sets the attribute config
-    #
-    # @param value the value to set the attribute config to.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:25
     def config=(_arg0); end
 
-    # @example
-    #   Pry.configure do |config|
-    #   config.eager_load! # optional
-    #   config.input =     # ..
-    #   config.foo = 2
-    #   end
-    # @yield [config] Yields a block with {Pry.config} as its argument.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:48
     def configure; end
 
     # source://pry-0.13.1/lib/pry/pry_class.rb:379
     def critical_section; end
 
-    # @return [Pry::Config] Returns a value store for an instance of Pry running on the current thread.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:65
     def current; end
 
-    # Returns the value of attribute current_line.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:19
     def current_line; end
 
-    # Sets the attribute current_line
-    #
-    # @param value the value to set the attribute current_line to.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:19
     def current_line=(_arg0); end
 
-    # Returns the value of attribute custom_completions.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:18
     def custom_completions; end
 
-    # Sets the attribute custom_completions
-    #
-    # @param value the value to set the attribute custom_completions to.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:18
     def custom_completions=(_arg0); end
 
@@ -923,15 +613,9 @@ class Pry
     # source://RUBY_ROOT/forwardable.rb:229
     def editor=(*args, **_arg1, &block); end
 
-    # Returns the value of attribute eval_path.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:21
     def eval_path; end
 
-    # Sets the attribute eval_path
-    #
-    # @param value the value to set the attribute eval_path to.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:21
     def eval_path=(_arg0); end
 
@@ -962,25 +646,15 @@ class Pry
     # source://RUBY_ROOT/forwardable.rb:229
     def hooks=(*args, **_arg1, &block); end
 
-    # @return [Boolean]
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:374
     def in_critical_section?; end
 
-    # Basic initialization.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:335
     def init; end
 
-    # @return [Boolean] Whether this is the first time a Pry session has
-    #   been started since loading the Pry class.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:254
     def initial_session?; end
 
-    # Do basic setup for initial session including: loading pryrc, plugins,
-    # requires, and history.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:131
     def initial_session_setup; end
 
@@ -990,66 +664,36 @@ class Pry
     # source://RUBY_ROOT/forwardable.rb:229
     def input=(*args, **_arg1, &block); end
 
-    # Returns the value of attribute last_internal_error.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:24
     def last_internal_error; end
 
-    # Sets the attribute last_internal_error
-    #
-    # @param value the value to set the attribute last_internal_error to.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:24
     def last_internal_error=(_arg0); end
 
-    # Returns the value of attribute line_buffer.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:20
     def line_buffer; end
 
-    # Sets the attribute line_buffer
-    #
-    # @param value the value to set the attribute line_buffer to.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:20
     def line_buffer=(_arg0); end
 
-    # Load the given file in the context of `Pry.toplevel_binding`
-    #
-    # @param file [String] The unexpanded file path.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:71
     def load_file_at_toplevel(file); end
 
-    # Execute the file through the REPL loop, non-interactively.
-    #
-    # @param file_name [String] File name to load through the REPL.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:199
     def load_file_through_repl(file_name); end
 
-    # Load Readline history if required.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:248
     def load_history; end
 
     # source://RUBY_ROOT/forwardable.rb:229
     def load_plugins(*args, **_arg1, &block); end
 
-    # Load RC files if appropriate This method can also be used to reload the
-    # files if they have changed.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:79
     def load_rc_files; end
 
-    # Load any Ruby files specified with the -r flag on the command line.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:103
     def load_requires; end
 
-    # Trap interrupts on jruby, and make them behave like MRI so we can
-    # catch them.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:111
     def load_traps; end
 
@@ -1059,8 +703,6 @@ class Pry
     # source://RUBY_ROOT/forwardable.rb:229
     def locate_plugins(*args, **_arg1, &block); end
 
-    # @return [main] returns the special instance of Object, "main".
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:57
     def main; end
 
@@ -1097,49 +739,21 @@ class Pry
     # source://RUBY_ROOT/forwardable.rb:229
     def prompt=(*args, **_arg1, &block); end
 
-    # Returns the value of attribute quiet.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:23
     def quiet; end
 
-    # Sets the attribute quiet
-    #
-    # @param value the value to set the attribute quiet to.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:23
     def quiet=(_arg0); end
 
-    # Load the local RC file (./.pryrc)
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:88
     def rc_files_to_load; end
 
-    # Expand a file to its canonical name (following symlinks as appropriate)
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:96
     def real_path_to(file); end
 
-    # Set all the configurable options back to their default values
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:323
     def reset_defaults; end
 
-    # Run a Pry command from outside a session. The commands available are
-    # those referenced by `Pry.config.commands` (the default command set).
-    #
-    # @example Run under Pry class, returning only public methods.
-    #   Pry.run_command "ls -m", :target => Pry
-    # @example Run at top-level with no output.
-    #   Pry.run_command "ls"
-    # @example Display command output.
-    #   Pry.run_command "ls -av", :show_output => true
-    # @option options
-    # @option options
-    # @param command_string [String] The Pry command (including arguments,
-    #   if any).
-    # @param options [Hash] Optional named parameters.
-    # @return [nil]
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:274
     def run_command(command_string, options = T.unsafe(nil)); end
 
@@ -1149,55 +763,20 @@ class Pry
     # source://pry-byebug-3.9.0/lib/pry-byebug/pry_ext.rb:8
     def start_with_pry_byebug(target = T.unsafe(nil), options = T.unsafe(nil)); end
 
-    # Start a Pry REPL.
-    # This method also loads `pryrc` as necessary the first time it is invoked.
-    #
-    # @example
-    #   Pry.start(Object.new, :input => MyInput.new)
-    # @option options
-    # @option options
-    # @option options
-    # @option options
-    # @option options
-    # @option options
-    # @option options
-    # @option options
-    # @option options
-    # @param target [Object, Binding] The receiver of the Pry session
-    # @param options [Hash]
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:159
     def start_without_pry_byebug(target = T.unsafe(nil), options = T.unsafe(nil)); end
 
     # source://pry-0.13.1/lib/pry/pry_class.rb:353
     def toplevel_binding; end
 
-    # Sets the attribute toplevel_binding
-    #
-    # @param value the value to set the attribute toplevel_binding to.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:371
     def toplevel_binding=(_arg0); end
 
-    # An inspector that clips the output to `max_length` chars.
-    # In case of > `max_length` chars the `#<Object...> notation is used.
-    #
-    # @option options
-    # @option options
-    # @param obj [Object] The object to view.
-    # @param options [Hash]
-    # @return [String] The string representation of `obj`.
-    #
     # source://pry-0.13.1/lib/pry/pry_class.rb:222
     def view_clip(obj, options = T.unsafe(nil)); end
   end
 end
 
-# @return [Array] Code of the method used when implementing Pry's
-#   __binding__, along with line indication to be used with instance_eval (and
-#   friends).
-# @see Object#__binding__
-#
 # source://pry-0.13.1/lib/pry/core_extensions.rb:9
 Pry::BINDING_METHOD_IMPL = T.let(T.unsafe(nil), Array)
 

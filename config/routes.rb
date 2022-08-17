@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       resources :super_types
       resources :sub_types
       resources :artists
+      resources :players
     end
   end
 end

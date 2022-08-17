@@ -1,13 +1,62 @@
-gem:
+# gem:
   # Add your `gem` command parameters here:
   #
   # exclude:
   # - gem_name
   # doc: true
   # workers: 5
-dsl:
+# dsl:
   # Add your `dsl` command parameters here:
   #
   # exclude:
   # - SomeGeneratorName
   # workers: 5
+
+require:
+  postrequire: sorbet/tapioca/require.rb
+todo:
+  todo_file: sorbet/rbi/todo.rbi
+  file_header: true
+dsl:
+  outdir: sorbet/rbi/dsl
+  file_header: true
+  only: []
+  exclude: []
+  verify: false
+  quiet: false
+  workers: 1
+  rbi_max_line_length: 120
+  environment: development
+  # list_compilers: false
+gem:
+  outdir: sorbet/rbi/gems
+  file_header: true
+  all: false
+  prerequire: ''
+  postrequire: sorbet/tapioca/require.rb
+  exclude: []
+  typed_overrides:
+    activesupport: 'false'
+  verify: false
+  doc: true
+  loc: true
+  exported_gem_rbis: true
+  workers: 1
+  auto_strictness: true
+  dsl_dir: sorbet/rbi/dsl
+  rbi_max_line_length: 120
+  environment: development
+check_shims:
+  gem_rbi_dir: sorbet/rbi/gems
+  dsl_rbi_dir: sorbet/rbi/dsl
+  shim_rbi_dir: sorbet/rbi/shims
+  annotations_rbi_dir: sorbet/rbi/annotations
+  todo_rbi_file: sorbet/rbi/todo.rbi
+  payload: true
+  workers: 1
+annotations:
+  sources:
+  - https://raw.githubusercontent.com/Shopify/rbi-central/main
+  netrc: true
+  netrc_file: ''
+  typed_overrides: {}

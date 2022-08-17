@@ -99,6 +99,12 @@ module GeneratedPathHelpersModule
   def api_v1_magic_cards_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def api_v1_player_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def api_v1_players_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def api_v1_printing_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }

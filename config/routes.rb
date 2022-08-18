@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   namespace :api do
-    namespace :v1 do
+    namespace :v1, defaults: { format: :json } do
       resources :magic_cards
       resources :magic_card_keywords
       resources :magic_card_rulings
@@ -22,6 +22,10 @@ Rails.application.routes.draw do
       resources :super_types
       resources :sub_types
       resources :artists
+      resources :players
+      resources :collections
+      resources :collection_magic_cards
+      get 'collection/:id/cards', to: 'collection_magic_cards#index', as: :ryan
     end
   end
 end

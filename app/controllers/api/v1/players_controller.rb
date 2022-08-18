@@ -16,7 +16,9 @@ module Api
 
       sig { returns(ActionController::Parameters) }
       def player_params
-        params.require(:player).permit(:name, :email)
+        player_params = T.cast(params.require(:player), ActionController::Parameters)
+
+        player_params.permit(:name, :email)
       end
     end
   end

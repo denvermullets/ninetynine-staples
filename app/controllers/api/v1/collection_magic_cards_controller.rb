@@ -13,6 +13,13 @@ module Api
       end
 
       sig { returns(String) }
+      def show
+        collection = CollectionMagicCard.includes(:magic_card).where(collection_id: params[:id])
+
+        render json: collection, include: :magic_card
+      end
+
+      sig { returns(String) }
       def create
         new_collection_magic_card = CollectionMagicCard.create(collection_magic_card_params)
 
@@ -25,7 +32,7 @@ module Api
       def collection_magic_card_params
         collection_magic_card_params = T.cast(params.require(:collection_magic_card), ActionController::Parameters)
 
-        collection_magic_card_params.permit(:magic_card_id, :collection_id, :quantity, :condition)
+        collection_magic_card_params.permit(:magic_card_id, :collection_id, :quantity, :condition, :notes)
       end
     end
   end

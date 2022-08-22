@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       resources :players
       resources :collections
       resources :collection_magic_cards
-      get 'collection/:id/cards', to: 'collection_magic_cards#index', as: :ryan
+      get 'collection/:id/cards', to: 'collection_magic_cards#show', as: :collection_cards
     end
   end
 end

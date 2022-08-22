@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.2.0...v1.3.0) (2022-08-22)
+
+
+### Bug Fixes
+
+* **setup:** update routes, add show method for collection ([#20](https://github.com/denvermullets/ninetynine-staples/issues/20)) ([ae5cd23](https://github.com/denvermullets/ninetynine-staples/commit/ae5cd2310b7115d9e44664b737722ecb73a433f3))
+
+
+### Features
+
+* **controllers:** add some basic crud for some controllers ([#19](https://github.com/denvermullets/ninetynine-staples/issues/19)) ([9776275](https://github.com/denvermullets/ninetynine-staples/commit/9776275181a688eb6c6f9541c34da69146d011b0))
+
 # [1.2.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.1.0...v1.2.0) (2022-08-14)
 
 

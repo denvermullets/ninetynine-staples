@@ -24,6 +24,9 @@ namespace :cards do
       scryfall = card['identifiers']['scryfallId'].to_s
       res = HTTParty.get("https://api.scryfall.com/cards/#{scryfall}")
 
+      # TODOD: check if card is double sided, current flow only accounts for single sided cards
+      # check if card name has // to branch logic ?
+
       if res
         large = res['image_uris']['large']
         normal = res['image_uris']['normal']
@@ -34,7 +37,7 @@ namespace :cards do
       sleep 0.075
 
       MagicCard.create(
-        boxset: boxset, name: card['name'], text: card['text'], original_text: card['originalText'],
+        boxset:, name: card['name'], text: card['text'], original_text: card['originalText'],
         power: card['power'], toughness: card['toughness'], rarity: card['rarity'], card_type: card['type'],
         original_type: card['originalType'], edhrec_rank: card['edhrecRank'], has_foil: card['hasFoil'],
         has_non_foil: card['hasNonFoil'], border_color: card['borderColor'],
@@ -87,6 +90,9 @@ namespace :cards do
     all_info = JSON.parse(source.read)['data']
 
     all_info.each do |key, value|
+      # TODO: remove this break, limits to 1 set with problems
+      # next unless key == 'CC2'
+
       puts "opening up #{key}"
       boxset = create_boxset(value)
       value['cards'].each do |card|

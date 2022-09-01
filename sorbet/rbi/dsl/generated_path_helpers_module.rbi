@@ -33,6 +33,21 @@ module GeneratedPathHelpersModule
   def api_v1_card_types_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def api_v1_collection_cards_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def api_v1_collection_magic_card_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def api_v1_collection_magic_cards_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def api_v1_collection_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def api_v1_collections_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def api_v1_color_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }

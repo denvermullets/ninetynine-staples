@@ -14,16 +14,21 @@ module Api
 
       sig { returns(String) }
       def show
-        collection = CollectionMagicCard.includes(:magic_card).where(collection_id: params[:id])
+        collection = if params[:boxset]
+                       CollectionMagicCard.by_set(params[:id], params[:boxset])
+                     else
+                       CollectionMagicCard.by_id(params[:id])
+                     end
 
         render json: collection, include: :magic_card
       end
 
       sig { returns(String) }
       def create
-        new_collection_magic_card = CollectionMagicCard.create(collection_magic_card_params)
+        magic_card = T.let(collection_magic_card_params.to_h, T::Hash[Symbol, T.any(Integer, T.nilable(String))])
+        collection_card = create_or_update_card(magic_card)
 
-        render json: new_collection_magic_card
+        render json: collection_card, include: :magic_card
       end
 
       private
@@ -33,6 +38,25 @@ module Api
         collection_magic_card_params = T.cast(params.require(:collection_magic_card), ActionController::Parameters)
 
         collection_magic_card_params.permit(:magic_card_id, :collection_id, :quantity, :condition, :notes)
+      end
+
+      sig { params(magic_card: T::Hash[Symbol, T.any(Integer, T.nilable(String))]).returns(T.nilable(::CollectionMagicCard)) }
+      def create_or_update_card(magic_card)
+        # this is sort of a hybrid create method since we want it to create a new record or update an existing record
+        # we won't ever have the CollectionMagicCard record id since it's a list of cards that can be updated in bulk
+        collection_card = CollectionMagicCard.where(
+          collection_id: magic_card[:collection_id], magic_card_id: magic_card[:magic_card_id]
+        )
+
+        if collection_card.length.zero?
+          CollectionMagicCard.create(collection_magic_card_params)
+        elsif collection_card.length
+          collection_card.first.update(magic_card)
+        end
+
+        CollectionMagicCard.where(
+          collection_id: magic_card[:collection_id], magic_card_id: magic_card[:magic_card_id]
+        ).first
       end
     end
   end

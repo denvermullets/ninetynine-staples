@@ -33,6 +33,21 @@ module GeneratedUrlHelpersModule
   def api_v1_card_types_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def api_v1_collection_cards_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def api_v1_collection_magic_card_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def api_v1_collection_magic_cards_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def api_v1_collection_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def api_v1_collections_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def api_v1_color_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }

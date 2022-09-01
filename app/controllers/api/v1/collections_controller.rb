@@ -7,7 +7,11 @@ module Api
 
       sig { returns(String) }
       def index
-        collections = Collection.all
+        collections = if params[:player_id]
+                        Collection.by_player(params[:player_id])
+                      else
+                        Collection.all
+                      end
 
         render json: collections
       end

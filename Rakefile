@@ -10,27 +10,32 @@ namespace :cards do
     desc 'Load json file and iterate thru cards for populating db'
 
     def create_boxset(set)
-      Boxset.create(
-        code: set['code'],
-        name: set['name'],
-        release_date: set['releaseDate'],
-        base_set_size: set['baseSetSize'],
-        total_set_size: set['totalSetSize'],
-        set_type: set['type']
-      )
+      Boxset.find_by(code: set['code']) ||
+        Boxset.create(
+          code: set['code'],
+          name: set['name'],
+          release_date: set['releaseDate'],
+          base_set_size: set['baseSetSize'],
+          total_set_size: set['totalSetSize'],
+          set_type: set['type']
+        )
     end
 
     def create_magic_card(boxset, card)
+      existing_card = MagicCard.find_by(card_uuid: card['uuid'])
+      return existing_card if existing_card
+
       scryfall = card['identifiers']['scryfallId'].to_s
       res = HTTParty.get("https://api.scryfall.com/cards/#{scryfall}")
 
-      # TODOD: check if card is double sided, current flow only accounts for single sided cards
-      # check if card name has // to branch logic ?
-
-      if res
+      if res && res.key?('image_uris') && res['image_uris'].key?('large')
         large = res['image_uris']['large']
         normal = res['image_uris']['normal']
         small = res['image_uris']['small']
+      elsif res && card['otherFaceIds'] && res['card_faces'][0].key?('image_uris')
+        large = res['card_faces'][0]['image_uris']['large']
+        normal = res['card_faces'][0]['image_uris']['normal']
+        small = res['card_faces'][0]['image_uris']['small']
       end
 
       # respecting scryfall rate limit requests
@@ -45,7 +50,7 @@ namespace :cards do
         frame_version: card['frameVersion'], is_reprint: card['isReprint'], card_number: card['number'],
         identifiers: card['identifiers'], card_uuid: card['uuid'], image_large: large,
         image_medium: normal, image_small: small, mana_cost: card['manaCost'], mana_value: card['manaValue'],
-        face_name: card['faceName'], card_side: card['cardSide']
+        face_name: card['faceName'], card_side: card.key?('otherFaceIds') ? card['otherFaceIds'].join(',') : nil
       )
     end
 
@@ -61,7 +66,7 @@ namespace :cards do
 
     def create_type(card, card_type)
       cardtype = CardType.find_by(name: card_type) || CardType.create(name: card_type)
-      MagicCardType.create(magic_card: card, card_type: cardtype)
+      MagicCardType.find_by(magic_card: card, card_type: cardtype) || MagicCardType.create(magic_card: card, card_type: cardtype)
     end
 
     def create_color(card, color)
@@ -81,7 +86,7 @@ namespace :cards do
 
     def create_keywords(card, word)
       keyword = Keyword.find_by(keyword: word) || Keyword.create(keyword: word)
-      MagicCardKeyword.create(magic_card: card, keyword: keyword)
+      MagicCardKeyword.create(magic_card: card, keyword:)
     end
 
     puts 'loading AllPrintings.json from mtgjson.com'
@@ -90,8 +95,7 @@ namespace :cards do
     all_info = JSON.parse(source.read)['data']
 
     all_info.each do |key, value|
-      # TODO: remove this break, limits to 1 set with problems
-      # next unless key == 'CC2'
+      next if key == 'UST'
 
       puts "opening up #{key}"
       boxset = create_boxset(value)
@@ -101,20 +105,15 @@ namespace :cards do
           puts "working on card #{card['name']}"
           magic_card = create_magic_card(boxset, card)
           artist = Artist.find_by(name: card['artist']) || Artist.create(name: card['artist'])
-          MagicCardArtist.create(artist: artist, magic_card: magic_card)
+          MagicCardArtist.find_by(artist:, magic_card:) || MagicCardArtist.create(artist:, magic_card:)
           card['subtypes'].each { |sub_type| create_sub_type(magic_card, sub_type) }
           card['supertypes'].each { |super_type| create_supertype(magic_card, super_type) }
           card['types'].each { |card_type| create_type(magic_card, card_type) }
           card['colors'].each { |color| create_color(magic_card, color) }
           card['colorIdentity'].each { |color| create_color_ident(magic_card, color) }
-          # not tracking printings for now since we can query the magic_card table
-          # having some internal debate about storing it as a json column but that makes querying it difficult
-          # which sort of defeats the purpose of storing the value at all :\
-          # card['printings'].each { |print| Printing.create(boxset_code: print, magic_card: magic_card) }
           card['rulings'].each { |ruling| create_ruling(magic_card, ruling) }
-          if card.key?('keywords')
-            card['keywords'].each { |keyword| create_keywords(magic_card, keyword) }
-          end
+
+          card['keywords'].each { |keyword| create_keywords(magic_card, keyword) } if card.key?('keywords')
         end
       end
     end

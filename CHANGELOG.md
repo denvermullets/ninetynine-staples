@@ -1,3 +1,13 @@
+# [1.4.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.3.0...v1.4.0) (2022-09-11)
+
+
+### Features
+
+* **auth:** add login/sign up view, handle auth, nin-39, nin-42 ([#25](https://github.com/denvermullets/ninetynine-staples/issues/25)) ([1548079](https://github.com/denvermullets/ninetynine-staples/commit/15480799d7d140f630f0c0690b9d3e98cc64cf06))
+* **boxsets:** controller actions for loading up cards in a set ([#22](https://github.com/denvermullets/ninetynine-staples/issues/22)) ([6a63788](https://github.com/denvermullets/ninetynine-staples/commit/6a637886e14b50fbf96eab1391d3e2bef7370b3c))
+* **collections:** able to add or delete cards from specified collections, nin-24 ([#23](https://github.com/denvermullets/ninetynine-staples/issues/23)) ([bc2efd8](https://github.com/denvermullets/ninetynine-staples/commit/bc2efd84c38098571951702675ba9a30e4f02d75))
+* **ingest:** fix ingest issues, update formatting, nin-22 ([#24](https://github.com/denvermullets/ninetynine-staples/issues/24)) ([3b593d1](https://github.com/denvermullets/ninetynine-staples/commit/3b593d1e2a83ba5870b5b821a4002320a732479e))
+
 # [1.3.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.2.0...v1.3.0) (2022-08-22)
 
 

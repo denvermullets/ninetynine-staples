@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/denvermullets/ninetynine-staples/compare/v1.4.2...v1.4.3) (2022-09-11)
+
+
+### Bug Fixes
+
+* **flyio:** lower workers to 2 ([#30](https://github.com/denvermullets/ninetynine-staples/issues/30)) ([68931ea](https://github.com/denvermullets/ninetynine-staples/commit/68931ea5c619ff921b8a29b8102c663d9fb6cdba))
+
 ## [1.4.2](https://github.com/denvermullets/ninetynine-staples/compare/v1.4.1...v1.4.2) (2022-09-11)
 
 

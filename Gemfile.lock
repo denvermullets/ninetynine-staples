@@ -67,6 +67,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
     ast (2.4.2)
+    bcrypt (3.1.18)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -79,6 +80,10 @@ GEM
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
     digest (3.1.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.11.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -91,6 +96,7 @@ GEM
     irb (1.4.1)
       reline (>= 0.3.0)
     json (2.6.2)
+    jwt (2.5.0)
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -236,9 +242,12 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap
   debug
+  dotenv-rails
   httparty
+  jwt (~> 2.2)
   pg (~> 1.1)
   pry-byebug
   puma (~> 5.0)
@@ -253,4 +262,4 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
-   2.3.20
+   2.3.22

@@ -5,6 +5,8 @@ module Api
     class BoxsetsController < ApplicationController
       extend T::Sig
 
+      skip_before_action :authorized
+
       sig { returns(String) }
       def index
         boxsets = Boxset.all.order(release_date: :desc).where.not(total_set_size: 0)

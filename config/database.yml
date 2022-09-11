@@ -23,8 +23,8 @@ default: &default
 
 development:
   <<: *default
-  # database: staples99_api_development
-  database: staples
+  database: ninetynine_staples
+  # database: staples
   # url: <%= ENV['DATABASE_URL'] %>
 
   # The specified database role being used to connect to postgres.
@@ -59,7 +59,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: staples99_api_test
+  database: ninetynine_staples_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -84,6 +84,6 @@ test:
 production:
   <<: *default
   # url: <%= ENV['DATABASE_URL'] %>
-  database: staples99_api_production
-  username: staples99_api
-  password: <%= ENV["STAPLES99_API_DATABASE_PASSWORD"] %>
+  database: ninetynine_staples
+  username: ninetynine_staples
+  password: <%= ENV["NINETYNINE_STAPLES_DATABASE_PASSWORD"] %>

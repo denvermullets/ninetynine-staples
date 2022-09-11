@@ -9,6 +9,7 @@ class ActiveRecord::Schema
   def self.define(info = nil, &blk); end
 end
 
-class ActiveRecord::Migration::Current < ActiveRecord::Migration
+class ActiveRecord::Migration
+  # @shim: Methods on migration are delegated to `SchemaStatements` using `method_missing`
   include ActiveRecord::ConnectionAdapters::SchemaStatements
 end

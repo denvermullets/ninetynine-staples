@@ -9,7 +9,7 @@ module ActionView
   Template::Error
 }
 
-  class MissingTemplate < ActionViewError
+  class MissingTemplate < ActionView::ActionViewError
     sig { returns(String) }
     def path; end
   end

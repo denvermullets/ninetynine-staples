@@ -23,6 +23,8 @@ Rails.application.routes.draw do
       resources :sub_types
       resources :artists
       resources :players
+      post '/login', to: 'players#login', as: :player_login
+      get '/auto_login', to: 'players#auto_login', as: :player_auto_login
       resources :collections
       resources :collection_magic_cards
       get 'collection/:id/cards', to: 'collection_magic_cards#show', as: :collection_cards

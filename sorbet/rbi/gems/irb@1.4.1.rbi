@@ -63,7 +63,7 @@ class Binding
   #
   # See IRB@IRB+Usage for more information.
   #
-  # source://RUBY_ROOT/irb.rb:970
+  # source://irb//irb.rb#970
   def irb; end
 end
 
@@ -71,7 +71,7 @@ module IRB
   class << self
     # The current Context in this session
     #
-    # source://RUBY_ROOT/irb.rb:403
+    # source://irb//irb.rb#403
     def CurrentContext; end
 
     # Convenience method to create a new Inspector, using the given +inspect+
@@ -81,7 +81,7 @@ module IRB
     #     irb(main):001:0> IRB.CurrentContext.inspect_mode = ins # => omg! #<IRB::Inspector:0x007f46f7ba7d28>
     #     irb(main):001:0> "what?" #=> omg! what?
     #
-    # source://RUBY_ROOT/irb/inspector.rb:24
+    # source://irb//irb/inspector.rb#24
     def Inspector(inspect, init = T.unsafe(nil)); end
 
     # Displays current configuration.
@@ -90,207 +90,207 @@ module IRB
     #
     # See IRB@Configuration for more information.
     #
-    # source://RUBY_ROOT/irb.rb:386
+    # source://irb//irb.rb#386
     def conf; end
 
-    # source://RUBY_ROOT/irb/src_encoding.rb:4
+    # source://irb//irb/src_encoding.rb#4
     def default_src_encoding; end
 
-    # source://RUBY_ROOT/irb/workspace.rb:184
+    # source://irb//irb/workspace.rb#184
     def delete_caller; end
 
-    # source://RUBY_ROOT/irb/init.rb:29
+    # source://irb//irb/init.rb#29
     def init_config(ap_path); end
 
-    # source://RUBY_ROOT/irb/init.rb:208
+    # source://irb//irb/init.rb#208
     def init_error; end
 
     # Aborts then interrupts irb.
     #
     # Will raise an Abort exception, or the given +exception+.
     #
-    # source://RUBY_ROOT/irb.rb:435
+    # source://irb//irb.rb#435
     def irb_abort(irb, exception = T.unsafe(nil)); end
 
     # Calls each event hook of <code>IRB.conf[:AT_EXIT]</code> when the current session quits.
     #
-    # source://RUBY_ROOT/irb.rb:423
+    # source://irb//irb.rb#423
     def irb_at_exit; end
 
     # Quits irb
     #
-    # source://RUBY_ROOT/irb.rb:428
+    # source://irb//irb.rb#428
     def irb_exit(irb, ret); end
 
     # loading modules
     #
-    # source://RUBY_ROOT/irb/init.rb:392
+    # source://irb//irb/init.rb#392
     def load_modules; end
 
     # option analyzing
     #
-    # source://RUBY_ROOT/irb/init.rb:213
+    # source://irb//irb/init.rb#213
     def parse_opts(argv: T.unsafe(nil)); end
 
-    # source://RUBY_ROOT/irb/init.rb:349
+    # source://irb//irb/init.rb#349
     def rc_file(ext = T.unsafe(nil)); end
 
     # enumerate possible rc-file base name generators
     #
     # @yield [proc{|rc| current_dir+"/.config/irb/irb#{rc}"}]
     #
-    # source://RUBY_ROOT/irb/init.rb:368
+    # source://irb//irb/init.rb#368
     def rc_file_generators; end
 
     # running config
     #
-    # source://RUBY_ROOT/irb/init.rb:333
+    # source://irb//irb/init.rb#333
     def run_config; end
 
-    # source://RUBY_ROOT/irb/init.rb:163
+    # source://irb//irb/init.rb#163
     def set_measure_callback(type = T.unsafe(nil), arg = T.unsafe(nil), &block); end
 
     # initialize config
     #
-    # source://RUBY_ROOT/irb/init.rb:16
+    # source://irb//irb/init.rb#16
     def setup(ap_path, argv: T.unsafe(nil)); end
 
     # Initializes IRB and creates a new Irb.irb object at the +TOPLEVEL_BINDING+
     #
-    # source://RUBY_ROOT/irb.rb:408
+    # source://irb//irb.rb#408
     def start(ap_path = T.unsafe(nil)); end
 
-    # source://RUBY_ROOT/irb/init.rb:199
+    # source://irb//irb/init.rb#199
     def unset_measure_callback(type = T.unsafe(nil)); end
 
     # Returns the current version of IRB, including release version and last
     # updated date.
     #
-    # source://RUBY_ROOT/irb.rb:392
+    # source://irb//irb.rb#392
     def version; end
 
     private
 
-    # source://RUBY_ROOT/irb/easter-egg.rb:101
+    # source://irb//irb/easter-egg.rb#101
     def easter_egg(type = T.unsafe(nil)); end
 
-    # source://RUBY_ROOT/irb/init.rb:406
+    # source://irb//irb/init.rb#406
     def set_encoding(extern, intern = T.unsafe(nil), override: T.unsafe(nil)); end
   end
 end
 
 module IRB::Color
   class << self
-    # source://RUBY_ROOT/irb/color.rb:104
+    # source://irb//irb/color.rb#104
     def clear(colorable: T.unsafe(nil)); end
 
     # @return [Boolean]
     #
-    # source://RUBY_ROOT/irb/color.rb:79
+    # source://irb//irb/color.rb#79
     def colorable?; end
 
-    # source://RUBY_ROOT/irb/color.rb:109
+    # source://irb//irb/color.rb#109
     def colorize(text, seq, colorable: T.unsafe(nil)); end
 
     # If `complete` is false (code is incomplete), this does not warn compile_error.
     # This option is needed to avoid warning a user when the compile_error is happening
     # because the input is not wrong but just incomplete.
     #
-    # source://RUBY_ROOT/irb/color.rb:118
+    # source://irb//irb/color.rb#118
     def colorize_code(code, complete: T.unsafe(nil), ignore_error: T.unsafe(nil), colorable: T.unsafe(nil)); end
 
     # @return [Boolean]
     #
-    # source://RUBY_ROOT/irb/color.rb:83
+    # source://irb//irb/color.rb#83
     def inspect_colorable?(obj, seen: T.unsafe(nil)); end
 
     private
 
-    # source://RUBY_ROOT/irb/color.rb:197
+    # source://irb//irb/color.rb#197
     def dispatch_seq(token, expr, str, in_symbol:); end
 
-    # source://RUBY_ROOT/irb/color.rb:164
+    # source://irb//irb/color.rb#164
     def scan(code, allow_last_error:); end
 
-    # source://RUBY_ROOT/irb/color.rb:156
+    # source://irb//irb/color.rb#156
     def without_circular_ref(obj, seen:, &block); end
   end
 end
 
 # A constant of all-bit 1 to match any Ripper's state in #dispatch_seq
 #
-# source://RUBY_ROOT/irb/color.rb:26
+# source://irb//irb/color.rb#26
 IRB::Color::ALL = T.let(T.unsafe(nil), Integer)
 
-# source://RUBY_ROOT/irb/color.rb:15
+# source://irb//irb/color.rb#15
 IRB::Color::BLUE = T.let(T.unsafe(nil), Integer)
 
-# source://RUBY_ROOT/irb/color.rb:9
+# source://irb//irb/color.rb#9
 IRB::Color::BOLD = T.let(T.unsafe(nil), Integer)
 
-# source://RUBY_ROOT/irb/color.rb:8
+# source://irb//irb/color.rb#8
 IRB::Color::CLEAR = T.let(T.unsafe(nil), Integer)
 
-# source://RUBY_ROOT/irb/color.rb:17
+# source://irb//irb/color.rb#17
 IRB::Color::CYAN = T.let(T.unsafe(nil), Integer)
 
-# source://debug-1.6.2/lib/debug/color.rb:8
+# source://debug/1.6.2/lib/debug/color.rb#8
 IRB::Color::DIM = T.let(T.unsafe(nil), Integer)
 
-# source://RUBY_ROOT/irb/color.rb:75
+# source://irb//irb/color.rb#75
 IRB::Color::ERROR_TOKENS = T.let(T.unsafe(nil), Array)
 
-# source://RUBY_ROOT/irb/color.rb:13
+# source://irb//irb/color.rb#13
 IRB::Color::GREEN = T.let(T.unsafe(nil), Integer)
 
-# source://RUBY_ROOT/irb/color.rb:16
+# source://irb//irb/color.rb#16
 IRB::Color::MAGENTA = T.let(T.unsafe(nil), Integer)
 
-# source://RUBY_ROOT/irb/color.rb:12
+# source://irb//irb/color.rb#12
 IRB::Color::RED = T.let(T.unsafe(nil), Integer)
 
-# source://RUBY_ROOT/irb/color.rb:11
+# source://irb//irb/color.rb#11
 IRB::Color::REVERSE = T.let(T.unsafe(nil), Integer)
 
 # A class to manage a state to know whether the current token is for Symbol or not.
 class IRB::Color::SymbolState
   # @return [SymbolState] a new instance of SymbolState
   #
-  # source://RUBY_ROOT/irb/color.rb:214
+  # source://irb//irb/color.rb#214
   def initialize; end
 
   # Return true if the token is a part of Symbol.
   #
-  # source://RUBY_ROOT/irb/color.rb:220
+  # source://irb//irb/color.rb#220
   def scan_token(token); end
 end
 
-# source://RUBY_ROOT/irb/color.rb:19
+# source://irb//irb/color.rb#19
 IRB::Color::TOKEN_KEYWORDS = T.let(T.unsafe(nil), Hash)
 
-# source://RUBY_ROOT/irb/color.rb:32
+# source://irb//irb/color.rb#32
 IRB::Color::TOKEN_SEQ_EXPRS = T.let(T.unsafe(nil), Hash)
 
-# source://RUBY_ROOT/irb/color.rb:10
+# source://irb//irb/color.rb#10
 IRB::Color::UNDERLINE = T.let(T.unsafe(nil), Integer)
 
-# source://RUBY_ROOT/irb/color.rb:14
+# source://irb//irb/color.rb#14
 IRB::Color::YELLOW = T.let(T.unsafe(nil), Integer)
 
 class IRB::ColorPrinter < ::PP
-  # source://RUBY_ROOT/irb/color_printer.rb:24
+  # source://irb//irb/color_printer.rb#24
   def pp(obj); end
 
-  # source://RUBY_ROOT/irb/color_printer.rb:33
+  # source://irb//irb/color_printer.rb#33
   def text(str, width = T.unsafe(nil)); end
 
   class << self
-    # source://RUBY_ROOT/irb/color_printer.rb:8
+    # source://irb//irb/color_printer.rb#8
     def pp(obj, out = T.unsafe(nil), width = T.unsafe(nil)); end
 
     private
 
-    # source://RUBY_ROOT/irb/color_printer.rb:17
+    # source://irb//irb/color_printer.rb#17
     def screen_width; end
   end
 end
@@ -306,17 +306,17 @@ class IRB::Context
   #
   # @return [Context] a new instance of Context
   #
-  # source://RUBY_ROOT/irb/context.rb:28
+  # source://irb//irb/context.rb#28
   def initialize(irb, workspace = T.unsafe(nil), input_method = T.unsafe(nil)); end
 
   # A copy of the default <code>IRB.conf[:AP_NAME]</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:167
+  # source://irb//irb/context.rb#167
   def ap_name; end
 
   # A copy of the default <code>IRB.conf[:AP_NAME]</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:167
+  # source://irb//irb/context.rb#167
   def ap_name=(_arg0); end
 
   # Can be either the default <code>IRB.conf[:AUTO_INDENT]</code>, or the
@@ -336,7 +336,7 @@ class IRB::Context
   #
   # See IRB@Configuration for more information.
   #
-  # source://RUBY_ROOT/irb/context.rb:228
+  # source://irb//irb/context.rb#228
   def auto_indent_mode; end
 
   # Can be either the default <code>IRB.conf[:AUTO_INDENT]</code>, or the
@@ -356,7 +356,7 @@ class IRB::Context
   #
   # See IRB@Configuration for more information.
   #
-  # source://RUBY_ROOT/irb/context.rb:228
+  # source://irb//irb/context.rb#228
   def auto_indent_mode=(_arg0); end
 
   # The limit of backtrace lines displayed as top +n+ and tail +n+.
@@ -367,7 +367,7 @@ class IRB::Context
   #
   # See IRB@Command+line+options for more command line options.
   #
-  # source://RUBY_ROOT/irb/context.rb:321
+  # source://irb//irb/context.rb#321
   def back_trace_limit; end
 
   # The limit of backtrace lines displayed as top +n+ and tail +n+.
@@ -378,7 +378,7 @@ class IRB::Context
   #
   # See IRB@Command+line+options for more command line options.
   #
-  # source://RUBY_ROOT/irb/context.rb:321
+  # source://irb//irb/context.rb#321
   def back_trace_limit=(_arg0); end
 
   # Whether to echo the return value to output or not.
@@ -392,7 +392,7 @@ class IRB::Context
   #     puts "omg"
   #     # omg
   #
-  # source://RUBY_ROOT/irb/context.rb:259
+  # source://irb//irb/context.rb#259
   def echo; end
 
   # Whether to echo the return value to output or not.
@@ -406,7 +406,7 @@ class IRB::Context
   #     puts "omg"
   #     # omg
   #
-  # source://RUBY_ROOT/irb/context.rb:259
+  # source://irb//irb/context.rb#259
   def echo=(_arg0); end
 
   # Whether to echo the return value to output or not.
@@ -420,7 +420,7 @@ class IRB::Context
   #     puts "omg"
   #     # omg
   #
-  # source://RUBY_ROOT/irb/context.rb:259
+  # source://irb//irb/context.rb#259
   def echo?; end
 
   # Whether to echo for assignment expressions.
@@ -458,7 +458,7 @@ class IRB::Context
   #
   #     IRB.CurrentContext.echo_on_assignment = :truncate or true or false
   #
-  # source://RUBY_ROOT/irb/context.rb:294
+  # source://irb//irb/context.rb#294
   def echo_on_assignment; end
 
   # Whether to echo for assignment expressions.
@@ -496,7 +496,7 @@ class IRB::Context
   #
   #     IRB.CurrentContext.echo_on_assignment = :truncate or true or false
   #
-  # source://RUBY_ROOT/irb/context.rb:294
+  # source://irb//irb/context.rb#294
   def echo_on_assignment=(_arg0); end
 
   # Whether to echo for assignment expressions.
@@ -534,7 +534,7 @@ class IRB::Context
   #
   #     IRB.CurrentContext.echo_on_assignment = :truncate or true or false
   #
-  # source://RUBY_ROOT/irb/context.rb:294
+  # source://irb//irb/context.rb#294
   def echo_on_assignment?; end
 
   # Sets command result history limit. Default value is set from
@@ -551,27 +551,27 @@ class IRB::Context
   # History values are available via <code>__</code> variable, see
   # IRB::History.
   #
-  # source://RUBY_ROOT/irb/extend-command.rb:289
+  # source://irb//irb/extend-command.rb#289
   def eval_history=(*opts, &b); end
 
-  # source://RUBY_ROOT/irb/context.rb:469
+  # source://irb//irb/context.rb#469
   def evaluate(line, line_no, exception: T.unsafe(nil)); end
 
   # Exits the current session, see IRB.irb_exit
   #
-  # source://RUBY_ROOT/irb/context.rb:485
+  # source://irb//irb/context.rb#485
   def exit(ret = T.unsafe(nil)); end
 
   # Specify the installation locations of the ri file to be displayed in the
   # document dialog.
   #
-  # source://RUBY_ROOT/irb/context.rb:248
+  # source://irb//irb/context.rb#248
   def extra_doc_dirs; end
 
   # Specify the installation locations of the ri file to be displayed in the
   # document dialog.
   #
-  # source://RUBY_ROOT/irb/context.rb:248
+  # source://irb//irb/context.rb#248
   def extra_doc_dirs=(_arg0); end
 
   # Whether #io uses a File for the +input_method+ passed when creating the
@@ -579,28 +579,28 @@ class IRB::Context
   #
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/context.rb:409
+  # source://irb//irb/context.rb#409
   def file_input?; end
 
   # Whether <code>^D</code> (+control-d+) will be ignored or not.
   #
   # If set to +false+, <code>^D</code> will quit irb.
   #
-  # source://RUBY_ROOT/irb/context.rb:245
+  # source://irb//irb/context.rb#245
   def ignore_eof; end
 
   # Whether <code>^D</code> (+control-d+) will be ignored or not.
   #
   # If set to +false+, <code>^D</code> will quit irb.
   #
-  # source://RUBY_ROOT/irb/context.rb:245
+  # source://irb//irb/context.rb#245
   def ignore_eof=(_arg0); end
 
   # Whether <code>^D</code> (+control-d+) will be ignored or not.
   #
   # If set to +false+, <code>^D</code> will quit irb.
   #
-  # source://RUBY_ROOT/irb/context.rb:245
+  # source://irb//irb/context.rb#245
   def ignore_eof?; end
 
   # Whether <code>^C</code> (+control-c+) will be ignored or not.
@@ -612,7 +612,7 @@ class IRB::Context
   # * during input:   cancel input then return to top level.
   # * during execute: abandon current execution.
   #
-  # source://RUBY_ROOT/irb/context.rb:241
+  # source://irb//irb/context.rb#241
   def ignore_sigint; end
 
   # Whether <code>^C</code> (+control-c+) will be ignored or not.
@@ -624,7 +624,7 @@ class IRB::Context
   # * during input:   cancel input then return to top level.
   # * during execute: abandon current execution.
   #
-  # source://RUBY_ROOT/irb/context.rb:241
+  # source://irb//irb/context.rb#241
   def ignore_sigint=(_arg0); end
 
   # Whether <code>^C</code> (+control-c+) will be ignored or not.
@@ -636,25 +636,25 @@ class IRB::Context
   # * during input:   cancel input then return to top level.
   # * during execute: abandon current execution.
   #
-  # source://RUBY_ROOT/irb/context.rb:241
+  # source://irb//irb/context.rb#241
   def ignore_sigint?; end
 
-  # source://RUBY_ROOT/irb/context.rb:496
+  # source://irb//irb/context.rb#496
   def inspect; end
 
   # Whether #inspect_mode is set or not, see #inspect_mode= for more detail.
   #
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/context.rb:403
+  # source://irb//irb/context.rb#403
   def inspect?; end
 
-  # source://RUBY_ROOT/irb/context.rb:479
+  # source://irb//irb/context.rb#479
   def inspect_last_value; end
 
   # A copy of the default <code>IRB.conf[:INSPECT_MODE]</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:194
+  # source://irb//irb/context.rb#194
   def inspect_mode; end
 
   # Specifies the inspect mode with +opt+:
@@ -671,7 +671,7 @@ class IRB::Context
   #
   # See IRB@Command+line+options for more command line options.
   #
-  # source://RUBY_ROOT/irb/context.rb:426
+  # source://irb//irb/context.rb#426
   def inspect_mode=(opt); end
 
   # The current input method.
@@ -680,7 +680,7 @@ class IRB::Context
   # ReidlineInputMethod, FileInputMethod or other specified when the
   # context is created. See ::new for more # information on +input_method+.
   #
-  # source://RUBY_ROOT/irb/context.rb:162
+  # source://irb//irb/context.rb#162
   def io; end
 
   # The current input method.
@@ -689,61 +689,61 @@ class IRB::Context
   # ReidlineInputMethod, FileInputMethod or other specified when the
   # context is created. See ::new for more # information on +input_method+.
   #
-  # source://RUBY_ROOT/irb/context.rb:162
+  # source://irb//irb/context.rb#162
   def io=(_arg0); end
 
   # Current irb session.
   #
-  # source://RUBY_ROOT/irb/context.rb:165
+  # source://irb//irb/context.rb#165
   def irb; end
 
   # Current irb session.
   #
-  # source://RUBY_ROOT/irb/context.rb:165
+  # source://irb//irb/context.rb#165
   def irb=(_arg0); end
 
   # Can be either name from <code>IRB.conf[:IRB_NAME]</code>, or the number of
   # the current job set by JobManager, such as <code>irb#2</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:174
+  # source://irb//irb/context.rb#174
   def irb_name; end
 
   # Can be either name from <code>IRB.conf[:IRB_NAME]</code>, or the number of
   # the current job set by JobManager, such as <code>irb#2</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:174
+  # source://irb//irb/context.rb#174
   def irb_name=(_arg0); end
 
   # Can be either the #irb_name surrounded by parenthesis, or the
   # +input_method+ passed to Context.new
   #
-  # source://RUBY_ROOT/irb/context.rb:177
+  # source://irb//irb/context.rb#177
   def irb_path; end
 
   # Can be either the #irb_name surrounded by parenthesis, or the
   # +input_method+ passed to Context.new
   #
-  # source://RUBY_ROOT/irb/context.rb:177
+  # source://irb//irb/context.rb#177
   def irb_path=(_arg0); end
 
   # The return value of the last statement evaluated.
   #
-  # source://RUBY_ROOT/irb/context.rb:374
+  # source://irb//irb/context.rb#374
   def last_value; end
 
   # A copy of the default <code>IRB.conf[:LOAD_MODULES]</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:171
+  # source://irb//irb/context.rb#171
   def load_modules; end
 
   # A copy of the default <code>IRB.conf[:LOAD_MODULES]</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:171
+  # source://irb//irb/context.rb#171
   def load_modules=(_arg0); end
 
   # The top-level workspace, see WorkSpace#main
   #
-  # source://RUBY_ROOT/irb/context.rb:147
+  # source://irb//irb/context.rb#147
   def main; end
 
   # Whether a newline is put before multiline output.
@@ -760,7 +760,7 @@ class IRB::Context
   #     #=> abc
   #     def
   #
-  # source://RUBY_ROOT/irb/context.rb:308
+  # source://irb//irb/context.rb#308
   def newline_before_multiline_output; end
 
   # Whether a newline is put before multiline output.
@@ -777,7 +777,7 @@ class IRB::Context
   #     #=> abc
   #     def
   #
-  # source://RUBY_ROOT/irb/context.rb:308
+  # source://irb//irb/context.rb#308
   def newline_before_multiline_output=(_arg0); end
 
   # Whether a newline is put before multiline output.
@@ -794,71 +794,71 @@ class IRB::Context
   #     #=> abc
   #     def
   #
-  # source://RUBY_ROOT/irb/context.rb:308
+  # source://irb//irb/context.rb#308
   def newline_before_multiline_output?; end
 
   # IRB prompt for continuated statement. (e.g. immediately after an +if+)
   #
   # See IRB@Customizing+the+IRB+Prompt for more information.
   #
-  # source://RUBY_ROOT/irb/context.rb:209
+  # source://irb//irb/context.rb#209
   def prompt_c; end
 
   # IRB prompt for continuated statement. (e.g. immediately after an +if+)
   #
   # See IRB@Customizing+the+IRB+Prompt for more information.
   #
-  # source://RUBY_ROOT/irb/context.rb:209
+  # source://irb//irb/context.rb#209
   def prompt_c=(_arg0); end
 
   # Standard IRB prompt.
   #
   # See IRB@Customizing+the+IRB+Prompt for more information.
   #
-  # source://RUBY_ROOT/irb/context.rb:201
+  # source://irb//irb/context.rb#201
   def prompt_i; end
 
   # Standard IRB prompt.
   #
   # See IRB@Customizing+the+IRB+Prompt for more information.
   #
-  # source://RUBY_ROOT/irb/context.rb:201
+  # source://irb//irb/context.rb#201
   def prompt_i=(_arg0); end
 
   # A copy of the default <code>IRB.conf[:PROMPT_MODE]</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:197
+  # source://irb//irb/context.rb#197
   def prompt_mode; end
 
   # Sets the +mode+ of the prompt in this context.
   #
   # See IRB@Customizing+the+IRB+Prompt for more information.
   #
-  # source://RUBY_ROOT/irb/context.rb:386
+  # source://irb//irb/context.rb#386
   def prompt_mode=(mode); end
 
   # See IRB@Customizing+the+IRB+Prompt for more information.
   #
-  # source://RUBY_ROOT/irb/context.rb:211
+  # source://irb//irb/context.rb#211
   def prompt_n; end
 
   # See IRB@Customizing+the+IRB+Prompt for more information.
   #
-  # source://RUBY_ROOT/irb/context.rb:211
+  # source://irb//irb/context.rb#211
   def prompt_n=(_arg0); end
 
   # IRB prompt for continuated strings.
   #
   # See IRB@Customizing+the+IRB+Prompt for more information.
   #
-  # source://RUBY_ROOT/irb/context.rb:205
+  # source://irb//irb/context.rb#205
   def prompt_s; end
 
   # IRB prompt for continuated strings.
   #
   # See IRB@Customizing+the+IRB+Prompt for more information.
   #
-  # source://RUBY_ROOT/irb/context.rb:205
+  # source://irb//irb/context.rb#205
   def prompt_s=(_arg0); end
 
   # Whether #verbose? is +true+, and +input_method+ is either
@@ -867,35 +867,35 @@ class IRB::Context
   #
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/context.rb:367
+  # source://irb//irb/context.rb#367
   def prompting?; end
 
   # A copy of the default <code>IRB.conf[:RC]</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:169
+  # source://irb//irb/context.rb#169
   def rc; end
 
   # A copy of the default <code>IRB.conf[:RC]</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:169
+  # source://irb//irb/context.rb#169
   def rc=(_arg0); end
 
   # A copy of the default <code>IRB.conf[:RC]</code>
   # Alias for #rc
   #
-  # source://RUBY_ROOT/irb/context.rb:169
+  # source://irb//irb/context.rb#169
   def rc?; end
 
   # The format of the return statement, set by #prompt_mode= using the
   # +:RETURN+ of the +mode+ passed to set the current #prompt_mode.
   #
-  # source://RUBY_ROOT/irb/context.rb:231
+  # source://irb//irb/context.rb#231
   def return_format; end
 
   # The format of the return statement, set by #prompt_mode= using the
   # +:RETURN+ of the +mode+ passed to set the current #prompt_mode.
   #
-  # source://RUBY_ROOT/irb/context.rb:231
+  # source://irb//irb/context.rb#231
   def return_format=(_arg0); end
 
   # Sets <code>IRB.conf[:SAVE_HISTORY]</code> to the given +val+ and calls
@@ -908,39 +908,39 @@ class IRB::Context
   #
   #     IRB.conf[:SAVE_HISTORY] = 1000
   #
-  # source://RUBY_ROOT/irb/extend-command.rb:289
+  # source://irb//irb/extend-command.rb#289
   def save_history=(*opts, &b); end
 
   # Sets the return value from the last statement evaluated in this context
   # to #last_value.
   #
-  # source://RUBY_ROOT/irb/context.rb:378
+  # source://irb//irb/context.rb#378
   def set_last_value(value); end
 
   # The current thread in this context.
   #
-  # source://RUBY_ROOT/irb/context.rb:156
+  # source://irb//irb/context.rb#156
   def thread; end
 
-  # source://RUBY_ROOT/irb/context.rb:496
+  # source://irb//irb/context.rb#496
   def to_s; end
 
   # A copy of the default <code>IRB.conf[:USE_AUTOCOMPLETE]</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:192
+  # source://irb//irb/context.rb#192
   def use_autocomplete; end
 
   # A copy of the default <code>IRB.conf[:USE_AUTOCOMPLETE]</code>
   # Alias for #use_autocomplete
   #
-  # source://RUBY_ROOT/irb/context.rb:192
+  # source://irb//irb/context.rb#192
   def use_autocomplete?; end
 
   # Whether colorization is enabled or not.
   #
   # A copy of the default <code>IRB.conf[:USE_COLORIZE]</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:190
+  # source://irb//irb/context.rb#190
   def use_colorize; end
 
   # Whether colorization is enabled or not.
@@ -948,21 +948,21 @@ class IRB::Context
   # A copy of the default <code>IRB.conf[:USE_COLORIZE]</code>
   # Alias for #use_colorize
   #
-  # source://RUBY_ROOT/irb/context.rb:190
+  # source://irb//irb/context.rb#190
   def use_colorize?; end
 
   # Sets <code>IRB.conf[:USE_LOADER]</code>
   #
   # See #use_loader for more information.
   #
-  # source://RUBY_ROOT/irb/extend-command.rb:289
+  # source://irb//irb/extend-command.rb#289
   def use_loader=(*opts, &b); end
 
   # Whether multiline editor mode is enabled or not.
   #
   # A copy of the default <code>IRB.conf[:USE_MULTILINE]</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:182
+  # source://irb//irb/context.rb#182
   def use_multiline; end
 
   # Whether multiline editor mode is enabled or not.
@@ -970,7 +970,7 @@ class IRB::Context
   # A copy of the default <code>IRB.conf[:USE_MULTILINE]</code>
   # Alias for #use_multiline
   #
-  # source://RUBY_ROOT/irb/context.rb:182
+  # source://irb//irb/context.rb#182
   def use_multiline?; end
 
   # Whether singleline editor mode is enabled or not.
@@ -978,7 +978,7 @@ class IRB::Context
   # A copy of the default <code>IRB.conf[:USE_SINGLELINE]</code>
   # backward compatibility
   #
-  # source://RUBY_ROOT/irb/context.rb:186
+  # source://irb//irb/context.rb#186
   def use_readline; end
 
   # Whether singleline editor mode is enabled or not.
@@ -986,7 +986,7 @@ class IRB::Context
   # A copy of the default <code>IRB.conf[:USE_SINGLELINE]</code>
   # backward compatibility
   #
-  # source://RUBY_ROOT/irb/context.rb:186
+  # source://irb//irb/context.rb#186
   def use_readline?; end
 
   # Whether multiline editor mode is enabled or not.
@@ -994,7 +994,7 @@ class IRB::Context
   # A copy of the default <code>IRB.conf[:USE_MULTILINE]</code>
   # backward compatibility
   #
-  # source://RUBY_ROOT/irb/context.rb:182
+  # source://irb//irb/context.rb#182
   def use_reidline; end
 
   # Whether multiline editor mode is enabled or not.
@@ -1002,14 +1002,14 @@ class IRB::Context
   # A copy of the default <code>IRB.conf[:USE_MULTILINE]</code>
   # backward compatibility
   #
-  # source://RUBY_ROOT/irb/context.rb:182
+  # source://irb//irb/context.rb#182
   def use_reidline?; end
 
   # Whether singleline editor mode is enabled or not.
   #
   # A copy of the default <code>IRB.conf[:USE_SINGLELINE]</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:186
+  # source://irb//irb/context.rb#186
   def use_singleline; end
 
   # Whether singleline editor mode is enabled or not.
@@ -1017,7 +1017,7 @@ class IRB::Context
   # A copy of the default <code>IRB.conf[:USE_SINGLELINE]</code>
   # Alias for #use_singleline
   #
-  # source://RUBY_ROOT/irb/context.rb:186
+  # source://irb//irb/context.rb#186
   def use_singleline?; end
 
   # Sets whether or not to use the Tracer library when evaluating statements
@@ -1025,53 +1025,53 @@ class IRB::Context
   #
   # See +lib/tracer.rb+ for more information.
   #
-  # source://RUBY_ROOT/irb/extend-command.rb:289
+  # source://irb//irb/extend-command.rb#289
   def use_tracer=(*opts, &b); end
 
   # Whether verbose messages are displayed or not.
   #
   # A copy of the default <code>IRB.conf[:VERBOSE]</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:312
+  # source://irb//irb/context.rb#312
   def verbose; end
 
   # Whether verbose messages are displayed or not.
   #
   # A copy of the default <code>IRB.conf[:VERBOSE]</code>
   #
-  # source://RUBY_ROOT/irb/context.rb:312
+  # source://irb//irb/context.rb#312
   def verbose=(_arg0); end
 
   # Returns whether messages are displayed or not.
   #
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/context.rb:348
+  # source://irb//irb/context.rb#348
   def verbose?; end
 
   # WorkSpace in the current context.
   #
-  # source://RUBY_ROOT/irb/context.rb:154
+  # source://irb//irb/context.rb#154
   def workspace; end
 
   # WorkSpace in the current context.
   #
-  # source://RUBY_ROOT/irb/context.rb:154
+  # source://irb//irb/context.rb#154
   def workspace=(_arg0); end
 
   # The toplevel workspace, see #home_workspace
   #
-  # source://RUBY_ROOT/irb/context.rb:152
+  # source://irb//irb/context.rb#152
   def workspace_home; end
 end
 
-# source://RUBY_ROOT/irb/context.rb:493
+# source://irb//irb/context.rb#493
 IRB::Context::IDNAME_IVARS = T.let(T.unsafe(nil), Array)
 
-# source://RUBY_ROOT/irb/context.rb:491
+# source://irb//irb/context.rb#491
 IRB::Context::NOPRINTING_IVARS = T.let(T.unsafe(nil), Array)
 
-# source://RUBY_ROOT/irb/context.rb:492
+# source://irb//irb/context.rb#492
 IRB::Context::NO_INSPECTING_IVARS = T.let(T.unsafe(nil), Array)
 
 # Extends methods for the Context module
@@ -1082,7 +1082,7 @@ module IRB::ContextExtender
     #
     # Will also define any given +aliases+ for the method.
     #
-    # source://RUBY_ROOT/irb/extend-command.rb:287
+    # source://irb//irb/extend-command.rb#287
     def def_extend_command(cmd_name, load_file, *aliases); end
 
     # Installs the default context extensions as irb commands:
@@ -1092,7 +1092,7 @@ module IRB::ContextExtender
     # Context#use_loader=::     +irb/ext/use-loader.rb+
     # Context#save_history=::   +irb/ext/save-history.rb+
     #
-    # source://RUBY_ROOT/irb/extend-command.rb:277
+    # source://irb//irb/extend-command.rb#277
     def install_extend_commands; end
   end
 end
@@ -1134,23 +1134,23 @@ module IRB::ExtendCommandBundle
   # Installs alias methods for the default irb commands, see
   # ::install_extend_commands.
   #
-  # source://RUBY_ROOT/irb/extend-command.rb:222
+  # source://irb//irb/extend-command.rb#222
   def install_alias_method(to, from, override = T.unsafe(nil)); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb(*opts, **kwargs, &b); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_change_workspace(*opts, **kwargs, &b); end
 
   # Displays current configuration.
   #
   # Modifying the configuration is achieved by sending a message to IRB.conf.
   #
-  # source://RUBY_ROOT/irb/extend-command.rb:36
+  # source://irb//irb/extend-command.rb#36
   def irb_context; end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_current_working_workspace(*opts, **kwargs, &b); end
 
   # Quits the current irb context
@@ -1159,56 +1159,56 @@ module IRB::ExtendCommandBundle
   #
   # Same as <code>IRB.CurrentContext.exit</code>.
   #
-  # source://RUBY_ROOT/irb/extend-command.rb:29
+  # source://irb//irb/extend-command.rb#29
   def irb_exit(ret = T.unsafe(nil)); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_fg(*opts, **kwargs, &b); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_help(*opts, **kwargs, &b); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_info(*opts, **kwargs, &b); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_jobs(*opts, **kwargs, &b); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_kill(*opts, **kwargs, &b); end
 
   # Loads the given file similarly to Kernel#load, see IrbLoader#irb_load
   #
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_load(*opts, **kwargs, &b); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_ls(*opts, **kwargs, &b); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_measure(*opts, **kwargs, &b); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_pop_workspace(*opts, **kwargs, &b); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_push_workspace(*opts, **kwargs, &b); end
 
   # Loads the given file similarly to Kernel#require
   #
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_require(*opts, **kwargs, &b); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_show_source(*opts, **kwargs, &b); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_source(*opts, **kwargs, &b); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_whereami(*opts, **kwargs, &b); end
 
-  # source://RUBY_ROOT/irb/extend-command.rb:189
+  # source://irb//irb/extend-command.rb#189
   def irb_workspaces(*opts, **kwargs, &b); end
 
   class << self
@@ -1219,13 +1219,13 @@ module IRB::ExtendCommandBundle
     # The optional +load_file+ parameter will be required within the method
     # definition.
     #
-    # source://RUBY_ROOT/irb/extend-command.rb:177
+    # source://irb//irb/extend-command.rb#177
     def def_extend_command(cmd_name, cmd_class, load_file = T.unsafe(nil), *aliases); end
 
     # Installs alias methods for the default irb commands on the given object
     # using #install_alias_method.
     #
-    # source://RUBY_ROOT/irb/extend-command.rb:248
+    # source://irb//irb/extend-command.rb#248
     def extend_object(obj); end
 
     # Installs the default irb commands:
@@ -1244,15 +1244,15 @@ module IRB::ExtendCommandBundle
     # +irb_kill+::                        JobManager#kill
     # +irb_help+::                        IRB@Command+line+options
     #
-    # source://RUBY_ROOT/irb/extend-command.rb:165
+    # source://irb//irb/extend-command.rb#165
     def install_extend_commands; end
 
-    # source://RUBY_ROOT/irb/extend-command.rb:242
+    # source://irb//irb/extend-command.rb#242
     def irb_original_method_name(method_name); end
   end
 end
 
-# source://RUBY_ROOT/irb/extend-command.rb:15
+# source://irb//irb/extend-command.rb#15
 IRB::ExtendCommandBundle::EXCB = IRB::ExtendCommandBundle
 
 # Use a File for IO with irb, see InputMethod
@@ -1261,15 +1261,15 @@ class IRB::FileInputMethod < ::IRB::InputMethod
   #
   # @return [FileInputMethod] a new instance of FileInputMethod
   #
-  # source://RUBY_ROOT/irb/input-method.rb:139
+  # source://irb//irb/input-method.rb#139
   def initialize(file); end
 
-  # source://RUBY_ROOT/irb/input-method.rb:173
+  # source://irb//irb/input-method.rb#173
   def close; end
 
   # The external encoding for standard input.
   #
-  # source://RUBY_ROOT/irb/input-method.rb:164
+  # source://irb//irb/input-method.rb#164
   def encoding; end
 
   # Whether the end of this input method has been reached, returns +true+ if
@@ -1279,33 +1279,33 @@ class IRB::FileInputMethod < ::IRB::InputMethod
   #
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/input-method.rb:151
+  # source://irb//irb/input-method.rb#151
   def eof?; end
 
   # The file name of this input method, usually given during initialization.
   #
-  # source://RUBY_ROOT/irb/input-method.rb:145
+  # source://irb//irb/input-method.rb#145
   def file_name; end
 
   # Reads the next line from this input method.
   #
   # See IO#gets for more information.
   #
-  # source://RUBY_ROOT/irb/input-method.rb:158
+  # source://irb//irb/input-method.rb#158
   def gets; end
 
   # For debug message
   #
-  # source://RUBY_ROOT/irb/input-method.rb:169
+  # source://irb//irb/input-method.rb#169
   def inspect; end
 
   class << self
-    # source://RUBY_ROOT/irb/input-method.rb:128
+    # source://irb//irb/input-method.rb#128
     def open(file, &block); end
   end
 end
 
-# source://RUBY_ROOT/irb/init.rb:348
+# source://irb//irb/init.rb#348
 IRB::IRBRC_EXT = T.let(T.unsafe(nil), String)
 
 module IRB::InputCompletor
@@ -1314,50 +1314,50 @@ module IRB::InputCompletor
     #
     # @return [Boolean]
     #
-    # source://RUBY_ROOT/irb/completion.rb:41
+    # source://irb//irb/completion.rb#41
     def absolute_path?(p); end
 
-    # source://RUBY_ROOT/irb/completion.rb:418
+    # source://irb//irb/completion.rb#418
     def ignored_modules; end
 
-    # source://RUBY_ROOT/irb/completion.rb:138
+    # source://irb//irb/completion.rb#138
     def retrieve_completion_data(input, bind: T.unsafe(nil), doc_namespace: T.unsafe(nil)); end
 
-    # source://RUBY_ROOT/irb/completion.rb:66
+    # source://irb//irb/completion.rb#66
     def retrieve_files_to_require_from_load_path; end
 
-    # source://RUBY_ROOT/irb/completion.rb:85
+    # source://irb//irb/completion.rb#85
     def retrieve_files_to_require_relative_from_current_dir; end
 
-    # source://RUBY_ROOT/irb/completion.rb:53
+    # source://irb//irb/completion.rb#53
     def retrieve_gem_and_system_load_path; end
 
-    # source://RUBY_ROOT/irb/completion.rb:406
+    # source://irb//irb/completion.rb#406
     def select_message(receiver, message, candidates, sep = T.unsafe(nil)); end
   end
 end
 
-# source://RUBY_ROOT/irb/completion.rb:39
+# source://irb//irb/completion.rb#39
 IRB::InputCompletor::BASIC_WORD_BREAK_CHARACTERS = T.let(T.unsafe(nil), String)
 
-# source://RUBY_ROOT/irb/completion.rb:126
+# source://irb//irb/completion.rb#126
 IRB::InputCompletor::CompletionProc = T.let(T.unsafe(nil), Proc)
 
-# source://RUBY_ROOT/irb/completion.rb:91
+# source://irb//irb/completion.rb#91
 IRB::InputCompletor::CompletionRequireProc = T.let(T.unsafe(nil), Proc)
 
 # Set of available operators in Ruby
 #
-# source://RUBY_ROOT/irb/completion.rb:404
+# source://irb//irb/completion.rb#404
 IRB::InputCompletor::Operators = T.let(T.unsafe(nil), Array)
 
-# source://RUBY_ROOT/irb/completion.rb:369
+# source://irb//irb/completion.rb#369
 IRB::InputCompletor::PerfectMatchedProc = T.let(T.unsafe(nil), Proc)
 
 # Set of reserved words used by Ruby, you should not use these for
 # constants or variables
 #
-# source://RUBY_ROOT/irb/completion.rb:18
+# source://irb//irb/completion.rb#18
 IRB::InputCompletor::ReservedWords = T.let(T.unsafe(nil), Array)
 
 class IRB::InputMethod
@@ -1365,34 +1365,34 @@ class IRB::InputMethod
   #
   # @return [InputMethod] a new instance of InputMethod
   #
-  # source://RUBY_ROOT/irb/input-method.rb:24
+  # source://irb//irb/input-method.rb#24
   def initialize(file = T.unsafe(nil)); end
 
   # The file name of this input method, usually given during initialization.
   #
-  # source://RUBY_ROOT/irb/input-method.rb:28
+  # source://irb//irb/input-method.rb#28
   def file_name; end
 
   # Reads the next line from this input method.
   #
   # See IO#gets for more information.
   #
-  # source://RUBY_ROOT/irb/input-method.rb:36
+  # source://irb//irb/input-method.rb#36
   def gets; end
 
   # For debug message
   #
-  # source://RUBY_ROOT/irb/input-method.rb:58
+  # source://irb//irb/input-method.rb#58
   def inspect; end
 
   # The irb prompt associated with this input method
   #
-  # source://RUBY_ROOT/irb/input-method.rb:31
+  # source://irb//irb/input-method.rb#31
   def prompt; end
 
   # The irb prompt associated with this input method
   #
-  # source://RUBY_ROOT/irb/input-method.rb:31
+  # source://irb//irb/input-method.rb#31
   def prompt=(_arg0); end
 
   # Whether this input method is still readable when there is no more data to
@@ -1402,10 +1402,10 @@ class IRB::InputMethod
   #
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/input-method.rb:53
+  # source://irb//irb/input-method.rb#53
   def readable_after_eof?; end
 
-  # source://RUBY_ROOT/irb/input-method.rb:41
+  # source://irb//irb/input-method.rb#41
   def winsize; end
 end
 
@@ -1430,18 +1430,18 @@ class IRB::Inspector
   #
   # @return [Inspector] a new instance of Inspector
   #
-  # source://RUBY_ROOT/irb/inspector.rb:89
+  # source://irb//irb/inspector.rb#89
   def initialize(inspect_proc, init_proc = T.unsafe(nil)); end
 
   # Proc to call when the inspector is activated, good for requiring
   # dependent libraries.
   #
-  # source://RUBY_ROOT/irb/inspector.rb:96
+  # source://irb//irb/inspector.rb#96
   def init; end
 
   # Proc to call when the input is evaluated and output in irb.
   #
-  # source://RUBY_ROOT/irb/inspector.rb:101
+  # source://irb//irb/inspector.rb#101
   def inspect_value(v); end
 
   class << self
@@ -1452,13 +1452,13 @@ class IRB::Inspector
     #     Inspector.def_inspector(key, inspector)
     #     Inspector.def_inspector([key1,...], inspector)
     #
-    # source://RUBY_ROOT/irb/inspector.rb:64
+    # source://irb//irb/inspector.rb#64
     def def_inspector(key, arg = T.unsafe(nil), &block); end
 
     # Determines the inspector to use where +inspector+ is one of the keys passed
     # during inspector definition.
     #
-    # source://RUBY_ROOT/irb/inspector.rb:54
+    # source://irb//irb/inspector.rb#54
     def keys_with_inspector(inspector); end
   end
 end
@@ -1468,71 +1468,71 @@ class IRB::Irb
   #
   # @return [Irb] a new instance of Irb
   #
-  # source://RUBY_ROOT/irb.rb:474
+  # source://irb//irb.rb#474
   def initialize(workspace = T.unsafe(nil), input_method = T.unsafe(nil)); end
 
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb.rb:868
+  # source://irb//irb.rb#868
   def assignment_expression?(line); end
 
   # Returns the current context of this irb session
   #
-  # source://RUBY_ROOT/irb.rb:500
+  # source://irb//irb.rb#500
   def context; end
 
-  # source://RUBY_ROOT/irb.rb:603
+  # source://irb//irb.rb#603
   def convert_invalid_byte_sequence(str, enc); end
 
-  # source://RUBY_ROOT/irb.rb:610
+  # source://irb//irb.rb#610
   def encode_with_invalid_byte_sequence(str, enc); end
 
   # Evaluates input for this session.
   #
-  # source://RUBY_ROOT/irb.rb:505
+  # source://irb//irb.rb#505
   def eval_input; end
 
-  # source://RUBY_ROOT/irb.rb:632
+  # source://irb//irb.rb#632
   def handle_exception(exc); end
 
   # Outputs the local variables to this current session, including
   # #signal_status and #context, using IRB::Locale.
   #
-  # source://RUBY_ROOT/irb.rb:853
+  # source://irb//irb.rb#853
   def inspect; end
 
-  # source://RUBY_ROOT/irb.rb:815
+  # source://irb//irb.rb#815
   def output_value(omit = T.unsafe(nil)); end
 
-  # source://RUBY_ROOT/irb.rb:776
+  # source://irb//irb.rb#776
   def prompt(prompt, ltype, indent, line_no); end
 
-  # source://RUBY_ROOT/irb.rb:481
+  # source://irb//irb.rb#481
   def run(conf = T.unsafe(nil)); end
 
   # The lexer used by this irb session
   #
-  # source://RUBY_ROOT/irb.rb:502
+  # source://irb//irb.rb#502
   def scanner; end
 
   # The lexer used by this irb session
   #
-  # source://RUBY_ROOT/irb.rb:502
+  # source://irb//irb.rb#502
   def scanner=(_arg0); end
 
   # Handler for the signal SIGINT, see Kernel#trap for more information.
   #
-  # source://RUBY_ROOT/irb.rb:742
+  # source://irb//irb.rb#742
   def signal_handle; end
 
   # Evaluates the given block using the given +status+.
   #
-  # source://RUBY_ROOT/irb.rb:764
+  # source://irb//irb.rb#764
   def signal_status(status); end
 
   # Evaluates the given block using the given +context+ as the Context.
   #
-  # source://RUBY_ROOT/irb.rb:732
+  # source://irb//irb.rb#732
   def suspend_context(context); end
 
   # Evaluates the given block using the given +input_method+ as the
@@ -1541,7 +1541,7 @@ class IRB::Irb
   # Used by the irb commands +source+ and +irb_load+, see IRB@IRB+Sessions
   # for more information.
   #
-  # source://RUBY_ROOT/irb.rb:721
+  # source://irb//irb.rb#721
   def suspend_input_method(input_method); end
 
   # Evaluates the given block using the given +path+ as the Context#irb_path
@@ -1550,7 +1550,7 @@ class IRB::Irb
   # Used by the irb command +source+, see IRB@IRB+Sessions for more
   # information.
   #
-  # source://RUBY_ROOT/irb.rb:691
+  # source://irb//irb.rb#691
   def suspend_name(path = T.unsafe(nil), name = T.unsafe(nil)); end
 
   # Evaluates the given block using the given +workspace+ as the
@@ -1559,78 +1559,78 @@ class IRB::Irb
   # Used by the irb command +irb_load+, see IRB@IRB+Sessions for more
   # information.
   #
-  # source://RUBY_ROOT/irb.rb:707
+  # source://irb//irb.rb#707
   def suspend_workspace(workspace); end
 end
 
-# source://RUBY_ROOT/irb.rb:444
+# source://irb//irb.rb#444
 IRB::Irb::ASSIGNMENT_NODE_TYPES = T.let(T.unsafe(nil), Array)
 
 class IRB::Locale
   # @return [Locale] a new instance of Locale
   #
-  # source://RUBY_ROOT/irb/locale.rb:26
+  # source://irb//irb/locale.rb#26
   def initialize(locale = T.unsafe(nil)); end
 
-  # source://RUBY_ROOT/irb/locale.rb:50
+  # source://irb//irb/locale.rb#50
   def String(mes); end
 
-  # source://RUBY_ROOT/irb/locale.rb:46
+  # source://irb//irb/locale.rb#46
   def encoding; end
 
-  # source://RUBY_ROOT/irb/locale.rb:125
+  # source://irb//irb/locale.rb#125
   def find(file, paths = T.unsafe(nil)); end
 
-  # source://RUBY_ROOT/irb/locale.rb:59
+  # source://irb//irb/locale.rb#59
   def format(*opts); end
 
-  # source://RUBY_ROOT/irb/locale.rb:63
+  # source://irb//irb/locale.rb#63
   def gets(*rs); end
 
   # Returns the value of attribute lang.
   #
-  # source://RUBY_ROOT/irb/locale.rb:44
+  # source://irb//irb/locale.rb#44
   def lang; end
 
-  # source://RUBY_ROOT/irb/locale.rb:113
+  # source://irb//irb/locale.rb#113
   def load(file, priv = T.unsafe(nil)); end
 
   # Returns the value of attribute modifier.
   #
-  # source://RUBY_ROOT/irb/locale.rb:44
+  # source://irb//irb/locale.rb#44
   def modifier; end
 
-  # source://RUBY_ROOT/irb/locale.rb:71
+  # source://irb//irb/locale.rb#71
   def print(*opts); end
 
-  # source://RUBY_ROOT/irb/locale.rb:76
+  # source://irb//irb/locale.rb#76
   def printf(*opts); end
 
-  # source://RUBY_ROOT/irb/locale.rb:81
+  # source://irb//irb/locale.rb#81
   def puts(*opts); end
 
-  # source://RUBY_ROOT/irb/locale.rb:67
+  # source://irb//irb/locale.rb#67
   def readline(*rs); end
 
-  # source://RUBY_ROOT/irb/locale.rb:86
+  # source://irb//irb/locale.rb#86
   def require(file, priv = T.unsafe(nil)); end
 
   # Returns the value of attribute territory.
   #
-  # source://RUBY_ROOT/irb/locale.rb:44
+  # source://irb//irb/locale.rb#44
   def territory; end
 
   private
 
-  # source://RUBY_ROOT/irb/locale.rb:164
+  # source://irb//irb/locale.rb#164
   def each_localized_path(dir, file); end
 
   # @yield [nil]
   #
-  # source://RUBY_ROOT/irb/locale.rb:171
+  # source://irb//irb/locale.rb#171
   def each_sublocale; end
 
-  # source://RUBY_ROOT/irb/locale.rb:138
+  # source://irb//irb/locale.rb#138
   def real_load(path, priv); end
 
   # typically, for the parameters and a <path> in paths, it searches
@@ -1640,19 +1640,19 @@ class IRB::Locale
   # @param dir directory
   # @param file basename to be localized
   #
-  # source://RUBY_ROOT/irb/locale.rb:153
+  # source://irb//irb/locale.rb#153
   def search_file(lib_paths, dir, file); end
 
   def toplevel_load(*_arg0); end
 end
 
-# source://RUBY_ROOT/irb/locale.rb:21
+# source://irb//irb/locale.rb#21
 IRB::Locale::LOCALE_DIR = T.let(T.unsafe(nil), String)
 
-# source://RUBY_ROOT/irb/locale.rb:15
+# source://irb//irb/locale.rb#15
 IRB::Locale::LOCALE_NAME_RE = T.let(T.unsafe(nil), Regexp)
 
-# source://RUBY_ROOT/irb/magic-file.rb:3
+# source://irb//irb/magic-file.rb#3
 IRB::MagicFile = T.let(T.unsafe(nil), Object)
 
 # A convenience module for extending Ruby methods.
@@ -1660,13 +1660,13 @@ module IRB::MethodExtender
   # Extends the given +base_method+ with a postfix call to the given
   # +extend_method+.
   #
-  # source://RUBY_ROOT/irb/extend-command.rb:323
+  # source://irb//irb/extend-command.rb#323
   def def_post_proc(base_method, extend_method); end
 
   # Extends the given +base_method+ with a prefix call to the given
   # +extend_method+.
   #
-  # source://RUBY_ROOT/irb/extend-command.rb:307
+  # source://irb//irb/extend-command.rb#307
   def def_pre_proc(base_method, extend_method); end
 
   # Returns a unique method name to use as an alias for the given +name+.
@@ -1677,7 +1677,7 @@ module IRB::MethodExtender
   #     def bar; end
   #     new_alias_name('bar') #=> __alias_of__bar__2
   #
-  # source://RUBY_ROOT/irb/extend-command.rb:344
+  # source://irb//irb/extend-command.rb#344
   def new_alias_name(name, prefix = T.unsafe(nil), postfix = T.unsafe(nil)); end
 end
 
@@ -1694,7 +1694,7 @@ module IRB::Notifier
   # expressions will be sent directly to STDOUT without any additional
   # formatting.
   #
-  # source://RUBY_ROOT/irb/notifier.rb:37
+  # source://irb//irb/notifier.rb#37
   def def_notifier(prefix = T.unsafe(nil), output_method = T.unsafe(nil)); end
 
   class << self
@@ -1707,7 +1707,7 @@ module IRB::Notifier
     # expressions will be sent directly to STDOUT without any additional
     # formatting.
     #
-    # source://RUBY_ROOT/irb/notifier.rb:37
+    # source://irb//irb/notifier.rb#37
     def def_notifier(prefix = T.unsafe(nil), output_method = T.unsafe(nil)); end
   end
 end
@@ -1720,14 +1720,14 @@ class IRB::Notifier::AbstractNotifier
   #
   # @return [AbstractNotifier] a new instance of AbstractNotifier
   #
-  # source://RUBY_ROOT/irb/notifier.rb:47
+  # source://irb//irb/notifier.rb#47
   def initialize(prefix, base_notifier); end
 
   # Execute the given block if notifications are enabled.
   #
   # @yield [@base_notifier]
   #
-  # source://RUBY_ROOT/irb/notifier.rb:105
+  # source://irb//irb/notifier.rb#105
   def exec_if; end
 
   # A wrapper method used to determine whether notifications are enabled.
@@ -1736,14 +1736,14 @@ class IRB::Notifier::AbstractNotifier
   #
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/notifier.rb:59
+  # source://irb//irb/notifier.rb#59
   def notify?; end
 
   # Same as #ppx, except it uses the #prefix given during object
   # initialization.
   # See OutputMethod#ppx for more detail.
   #
-  # source://RUBY_ROOT/irb/notifier.rb:88
+  # source://irb//irb/notifier.rb#88
   def pp(*objs); end
 
   # Same as #pp, except it concatenates the given +prefix+ with the #prefix
@@ -1751,33 +1751,33 @@ class IRB::Notifier::AbstractNotifier
   #
   # See OutputMethod#ppx for more detail.
   #
-  # source://RUBY_ROOT/irb/notifier.rb:98
+  # source://irb//irb/notifier.rb#98
   def ppx(prefix, *objs); end
 
   # The +prefix+ for this Notifier, which is appended to all objects being
   # inspected during output.
   #
-  # source://RUBY_ROOT/irb/notifier.rb:54
+  # source://irb//irb/notifier.rb#54
   def prefix; end
 
   # See OutputMethod#print for more detail.
   #
-  # source://RUBY_ROOT/irb/notifier.rb:64
+  # source://irb//irb/notifier.rb#64
   def print(*opts); end
 
   # See OutputMethod#printf for more detail.
   #
-  # source://RUBY_ROOT/irb/notifier.rb:74
+  # source://irb//irb/notifier.rb#74
   def printf(format, *opts); end
 
   # See OutputMethod#printn for more detail.
   #
-  # source://RUBY_ROOT/irb/notifier.rb:69
+  # source://irb//irb/notifier.rb#69
   def printn(*opts); end
 
   # See OutputMethod#puts for more detail.
   #
-  # source://RUBY_ROOT/irb/notifier.rb:79
+  # source://irb//irb/notifier.rb#79
   def puts(*objs); end
 end
 
@@ -1797,7 +1797,7 @@ class IRB::Notifier::CompositeNotifier < ::IRB::Notifier::AbstractNotifier
   #
   # @return [CompositeNotifier] a new instance of CompositeNotifier
   #
-  # source://RUBY_ROOT/irb/notifier.rb:123
+  # source://irb//irb/notifier.rb#123
   def initialize(prefix, base_notifier); end
 
   # Creates a new LeveledNotifier in the composite #notifiers group.
@@ -1807,12 +1807,12 @@ class IRB::Notifier::CompositeNotifier < ::IRB::Notifier::AbstractNotifier
   #
   # This method returns the newly created instance.
   #
-  # source://RUBY_ROOT/irb/notifier.rb:139
+  # source://irb//irb/notifier.rb#139
   def def_notifier(level, prefix = T.unsafe(nil)); end
 
   # Returns the leveled notifier for this object
   #
-  # source://RUBY_ROOT/irb/notifier.rb:146
+  # source://irb//irb/notifier.rb#146
   def level; end
 
   # Sets the leveled notifier for this object.
@@ -1830,12 +1830,12 @@ class IRB::Notifier::CompositeNotifier < ::IRB::Notifier::AbstractNotifier
   # found in the existing #notifiers Array, or an instance of
   # AbstractNotifier
   #
-  # source://RUBY_ROOT/irb/notifier.rb:163
+  # source://irb//irb/notifier.rb#163
   def level=(value); end
 
   # Returns the leveled notifier for this object
   #
-  # source://RUBY_ROOT/irb/notifier.rb:146
+  # source://irb//irb/notifier.rb#146
   def level_notifier; end
 
   # Sets the leveled notifier for this object.
@@ -1853,26 +1853,26 @@ class IRB::Notifier::CompositeNotifier < ::IRB::Notifier::AbstractNotifier
   # found in the existing #notifiers Array, or an instance of
   # AbstractNotifier
   #
-  # source://RUBY_ROOT/irb/notifier.rb:163
+  # source://irb//irb/notifier.rb#163
   def level_notifier=(value); end
 
   # List of notifiers in the group
   #
-  # source://RUBY_ROOT/irb/notifier.rb:131
+  # source://irb//irb/notifier.rb#131
   def notifiers; end
 end
 
 class IRB::Notifier::ErrUndefinedNotifier < ::StandardError
   # @return [ErrUndefinedNotifier] a new instance of ErrUndefinedNotifier
   #
-  # source://RUBY_ROOT/irb/notifier.rb:19
+  # source://irb//irb/notifier.rb#19
   def initialize(val); end
 end
 
 class IRB::Notifier::ErrUnrecognizedLevel < ::StandardError
   # @return [ErrUnrecognizedLevel] a new instance of ErrUnrecognizedLevel
   #
-  # source://RUBY_ROOT/irb/notifier.rb:24
+  # source://irb//irb/notifier.rb#24
   def initialize(val); end
 end
 
@@ -1890,7 +1890,7 @@ class IRB::Notifier::LeveledNotifier < ::IRB::Notifier::AbstractNotifier
   #
   # @return [LeveledNotifier] a new instance of LeveledNotifier
   #
-  # source://RUBY_ROOT/irb/notifier.rb:190
+  # source://irb//irb/notifier.rb#190
   def initialize(base, level, prefix); end
 
   # Compares the level of this notifier object with the given +other+
@@ -1898,12 +1898,12 @@ class IRB::Notifier::LeveledNotifier < ::IRB::Notifier::AbstractNotifier
   #
   # See the Comparable module for more information.
   #
-  # source://RUBY_ROOT/irb/notifier.rb:203
+  # source://irb//irb/notifier.rb#203
   def <=>(other); end
 
   # The current level of this notifier object
   #
-  # source://RUBY_ROOT/irb/notifier.rb:197
+  # source://irb//irb/notifier.rb#197
   def level; end
 
   # Whether to output messages to the output method, depending on the level
@@ -1911,7 +1911,7 @@ class IRB::Notifier::LeveledNotifier < ::IRB::Notifier::AbstractNotifier
   #
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/notifier.rb:209
+  # source://irb//irb/notifier.rb#209
   def notify?; end
 end
 
@@ -1925,7 +1925,7 @@ class IRB::Notifier::NoMsgNotifier < ::IRB::Notifier::LeveledNotifier
   #
   # @return [NoMsgNotifier] a new instance of NoMsgNotifier
   #
-  # source://RUBY_ROOT/irb/notifier.rb:221
+  # source://irb//irb/notifier.rb#221
   def initialize; end
 
   # Ensures notifications are ignored, see AbstractNotifier#notify? for
@@ -1933,7 +1933,7 @@ class IRB::Notifier::NoMsgNotifier < ::IRB::Notifier::LeveledNotifier
   #
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/notifier.rb:229
+  # source://irb//irb/notifier.rb#229
   def notify?; end
 end
 
@@ -1952,14 +1952,14 @@ class IRB::OutputMethod
   #     #<length modifier>(hh|h|l|ll|L|q|j|z|t)
   #     <conversion specifier>[diouxXeEfgGcsb%]
   #
-  # source://RUBY_ROOT/irb/output-method.rb:54
+  # source://irb//irb/output-method.rb#54
   def parse_printf_format(format, opts); end
 
   # Prints the given +objs+ calling Object#inspect on each.
   #
   # See #puts for more detail.
   #
-  # source://RUBY_ROOT/irb/output-method.rb:70
+  # source://irb//irb/output-method.rb#70
   def pp(*objs); end
 
   # Prints the given +objs+ calling Object#inspect on each and appending the
@@ -1967,7 +1967,7 @@ class IRB::OutputMethod
   #
   # See #puts for more detail.
   #
-  # source://RUBY_ROOT/irb/output-method.rb:78
+  # source://irb//irb/output-method.rb#78
   def ppx(prefix, *objs); end
 
   # Open this method to implement your own output method, raises a
@@ -1975,58 +1975,58 @@ class IRB::OutputMethod
   #
   # @raise [NotImplementedError]
   #
-  # source://RUBY_ROOT/irb/output-method.rb:26
+  # source://irb//irb/output-method.rb#26
   def print(*opts); end
 
   # Extends IO#printf to format the given +opts+ for Kernel#sprintf using
   # #parse_printf_format
   #
-  # source://RUBY_ROOT/irb/output-method.rb:37
+  # source://irb//irb/output-method.rb#37
   def printf(format, *opts); end
 
   # Prints the given +opts+, with a newline delimiter.
   #
-  # source://RUBY_ROOT/irb/output-method.rb:31
+  # source://irb//irb/output-method.rb#31
   def printn(*opts); end
 
   # Calls #print on each element in the given +objs+, followed by a newline
   # character.
   #
-  # source://RUBY_ROOT/irb/output-method.rb:60
+  # source://irb//irb/output-method.rb#60
   def puts(*objs); end
 end
 
 class IRB::OutputMethod::NotImplementedError < ::StandardError
   # @return [NotImplementedError] a new instance of NotImplementedError
   #
-  # source://RUBY_ROOT/irb/output-method.rb:19
+  # source://irb//irb/output-method.rb#19
   def initialize(val); end
 end
 
 class IRB::ReadlineInputMethod < ::IRB::InputMethod
-  # source://RUBY_ROOT/irb/input-method.rb:188
+  # source://irb//irb/input-method.rb#188
   def initialize; end
 
-  # source://RUBY_ROOT/irb/input-method.rb:250
+  # source://irb//irb/input-method.rb#250
   def encoding; end
 
-  # source://RUBY_ROOT/irb/input-method.rb:228
+  # source://irb//irb/input-method.rb#228
   def eof?; end
 
-  # source://RUBY_ROOT/irb/input-method.rb:212
+  # source://irb//irb/input-method.rb#212
   def gets; end
 
-  # source://RUBY_ROOT/irb/input-method.rb:255
+  # source://irb//irb/input-method.rb#255
   def inspect; end
 
-  # source://RUBY_ROOT/irb/input-method.rb:245
+  # source://irb//irb/input-method.rb#245
   def line(line_no); end
 
-  # source://RUBY_ROOT/irb/input-method.rb:236
+  # source://irb//irb/input-method.rb#236
   def readable_after_eof?; end
 
   class << self
-    # source://RUBY_ROOT/irb/input-method.rb:180
+    # source://irb//irb/input-method.rb#180
     def initialize_readline; end
   end
 end
@@ -2038,21 +2038,21 @@ class IRB::ReidlineInputMethod < ::IRB::InputMethod
   #
   # @return [ReidlineInputMethod] a new instance of ReidlineInputMethod
   #
-  # source://RUBY_ROOT/irb/input-method.rb:269
+  # source://irb//irb/input-method.rb#269
   def initialize; end
 
-  # source://RUBY_ROOT/irb/input-method.rb:312
+  # source://irb//irb/input-method.rb#312
   def auto_indent(&block); end
 
-  # source://RUBY_ROOT/irb/input-method.rb:304
+  # source://irb//irb/input-method.rb#304
   def check_termination(&block); end
 
-  # source://RUBY_ROOT/irb/input-method.rb:308
+  # source://irb//irb/input-method.rb#308
   def dynamic_prompt(&block); end
 
   # The external encoding for standard input.
   #
-  # source://RUBY_ROOT/irb/input-method.rb:452
+  # source://irb//irb/input-method.rb#452
   def encoding; end
 
   # Whether the end of this input method has been reached, returns +true+
@@ -2062,19 +2062,19 @@ class IRB::ReidlineInputMethod < ::IRB::InputMethod
   #
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/input-method.rb:430
+  # source://irb//irb/input-method.rb#430
   def eof?; end
 
   # Reads the next line from this input method.
   #
   # See IO#gets for more information.
   #
-  # source://RUBY_ROOT/irb/input-method.rb:412
+  # source://irb//irb/input-method.rb#412
   def gets; end
 
   # For debug message
   #
-  # source://RUBY_ROOT/irb/input-method.rb:457
+  # source://irb//irb/input-method.rb#457
   def inspect; end
 
   # Returns the current line number for #io.
@@ -2083,7 +2083,7 @@ class IRB::ReidlineInputMethod < ::IRB::InputMethod
   #
   # See IO#lineno for more information.
   #
-  # source://RUBY_ROOT/irb/input-method.rb:447
+  # source://irb//irb/input-method.rb#447
   def line(line_no); end
 
   # Whether this input method is still readable when there is no more data to
@@ -2093,14 +2093,14 @@ class IRB::ReidlineInputMethod < ::IRB::InputMethod
   #
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/input-method.rb:438
+  # source://irb//irb/input-method.rb#438
   def readable_after_eof?; end
 end
 
-# source://RUBY_ROOT/irb/input-method.rb:316
+# source://irb//irb/input-method.rb#316
 IRB::ReidlineInputMethod::SHOW_DOC_DIALOG = T.let(T.unsafe(nil), Proc)
 
-# source://RUBY_ROOT/irb/input-method.rb:20
+# source://irb//irb/input-method.rb#20
 IRB::STDIN_FILE_NAME = T.let(T.unsafe(nil), String)
 
 class IRB::StdioInputMethod < ::IRB::InputMethod
@@ -2108,12 +2108,12 @@ class IRB::StdioInputMethod < ::IRB::InputMethod
   #
   # @return [StdioInputMethod] a new instance of StdioInputMethod
   #
-  # source://RUBY_ROOT/irb/input-method.rb:65
+  # source://irb//irb/input-method.rb#65
   def initialize; end
 
   # The external encoding for standard input.
   #
-  # source://RUBY_ROOT/irb/input-method.rb:115
+  # source://irb//irb/input-method.rb#115
   def encoding; end
 
   # Whether the end of this input method has been reached, returns +true+ if
@@ -2123,19 +2123,19 @@ class IRB::StdioInputMethod < ::IRB::InputMethod
   #
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/input-method.rb:86
+  # source://irb//irb/input-method.rb#86
   def eof?; end
 
   # Reads the next line from this input method.
   #
   # See IO#gets for more information.
   #
-  # source://RUBY_ROOT/irb/input-method.rb:76
+  # source://irb//irb/input-method.rb#76
   def gets; end
 
   # For debug message
   #
-  # source://RUBY_ROOT/irb/input-method.rb:120
+  # source://irb//irb/input-method.rb#120
   def inspect; end
 
   # Returns the current line number for #io.
@@ -2144,7 +2144,7 @@ class IRB::StdioInputMethod < ::IRB::InputMethod
   #
   # See IO#lineno for more information.
   #
-  # source://RUBY_ROOT/irb/input-method.rb:110
+  # source://irb//irb/input-method.rb#110
   def line(line_no); end
 
   # Whether this input method is still readable when there is no more data to
@@ -2154,7 +2154,7 @@ class IRB::StdioInputMethod < ::IRB::InputMethod
   #
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/input-method.rb:101
+  # source://irb//irb/input-method.rb#101
   def readable_after_eof?; end
 end
 
@@ -2163,14 +2163,14 @@ class IRB::StdioOutputMethod < ::IRB::OutputMethod
   # Prints the given +opts+ to standard output, see IO#print for more
   # information.
   #
-  # source://RUBY_ROOT/irb/output-method.rb:88
+  # source://irb//irb/output-method.rb#88
   def print(*opts); end
 end
 
-# source://RUBY_ROOT/irb/workspace.rb:15
+# source://irb//irb/workspace.rb#15
 IRB::TOPLEVEL_BINDING = T.let(T.unsafe(nil), Binding)
 
-# source://RUBY_ROOT/irb/version.rb:14
+# source://irb//irb/version.rb#14
 IRB::VERSION = T.let(T.unsafe(nil), String)
 
 class IRB::WorkSpace
@@ -2181,37 +2181,37 @@ class IRB::WorkSpace
   #
   # @return [WorkSpace] a new instance of WorkSpace
   #
-  # source://RUBY_ROOT/irb/workspace.rb:22
+  # source://irb//irb/workspace.rb#22
   def initialize(*main); end
 
   # The Binding of this workspace
   #
-  # source://RUBY_ROOT/irb/workspace.rb:112
+  # source://irb//irb/workspace.rb#112
   def binding; end
 
-  # source://RUBY_ROOT/irb/workspace.rb:144
+  # source://irb//irb/workspace.rb#144
   def code_around_binding; end
 
   # Evaluate the given +statements+ within the  context of this workspace.
   #
-  # source://RUBY_ROOT/irb/workspace.rb:118
+  # source://irb//irb/workspace.rb#118
   def evaluate(context, statements, file = T.unsafe(nil), line = T.unsafe(nil)); end
 
   # error message manipulator
   #
-  # source://RUBY_ROOT/irb/workspace.rb:131
+  # source://irb//irb/workspace.rb#131
   def filter_backtrace(bt); end
 
-  # source://RUBY_ROOT/irb/workspace.rb:126
+  # source://irb//irb/workspace.rb#126
   def local_variable_get(name); end
 
-  # source://RUBY_ROOT/irb/workspace.rb:122
+  # source://irb//irb/workspace.rb#122
   def local_variable_set(name, value); end
 
   # The top-level workspace of this context, also available as
   # <code>IRB.conf[:__MAIN__]</code>
   #
-  # source://RUBY_ROOT/irb/workspace.rb:115
+  # source://irb//irb/workspace.rb#115
   def main; end
 end
 
@@ -2219,100 +2219,100 @@ end
 class RubyLex
   # @return [RubyLex] a new instance of RubyLex
   #
-  # source://RUBY_ROOT/irb/ruby-lex.rb:25
+  # source://irb//irb/ruby-lex.rb#25
   def initialize; end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:319
+  # source://irb//irb/ruby-lex.rb#319
   def check_code_block(code, tokens = T.unsafe(nil)); end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:609
+  # source://irb//irb/ruby-lex.rb#609
   def check_corresponding_token_depth(lines, line_index); end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:539
+  # source://irb//irb/ruby-lex.rb#539
   def check_newline_depth_difference; end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:223
+  # source://irb//irb/ruby-lex.rb#223
   def check_state(code, tokens = T.unsafe(nil), context: T.unsafe(nil)); end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:717
+  # source://irb//irb/ruby-lex.rb#717
   def check_string_literal(tokens); end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:791
+  # source://irb//irb/ruby-lex.rb#791
   def check_termination_in_prev_line(code, context: T.unsafe(nil)); end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:247
+  # source://irb//irb/ruby-lex.rb#247
   def each_top_level_statement; end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:178
+  # source://irb//irb/ruby-lex.rb#178
   def find_prev_spaces(line_index); end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:238
+  # source://irb//irb/ruby-lex.rb#238
   def initialize_input; end
 
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/ruby-lex.rb:462
+  # source://irb//irb/ruby-lex.rb#462
   def is_method_calling?(tokens, index); end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:511
+  # source://irb//irb/ruby-lex.rb#511
   def is_the_in_correspond_to_a_for(tokens, index); end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:283
+  # source://irb//irb/ruby-lex.rb#283
   def lex; end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:298
+  # source://irb//irb/ruby-lex.rb#298
   def process_continue(tokens = T.unsafe(nil)); end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:758
+  # source://irb//irb/ruby-lex.rb#758
   def process_literal_type(tokens = T.unsafe(nil)); end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:412
+  # source://irb//irb/ruby-lex.rb#412
   def process_nesting_level(tokens = T.unsafe(nil)); end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:232
+  # source://irb//irb/ruby-lex.rb#232
   def prompt; end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:198
+  # source://irb//irb/ruby-lex.rb#198
   def set_auto_indent(context); end
 
   # io functions
   #
-  # source://RUBY_ROOT/irb/ruby-lex.rb:51
+  # source://irb//irb/ruby-lex.rb#51
   def set_input(io, p = T.unsafe(nil), context: T.unsafe(nil), &block); end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:121
+  # source://irb//irb/ruby-lex.rb#121
   def set_prompt(p = T.unsafe(nil), &block); end
 
-  # source://RUBY_ROOT/irb/ruby-lex.rb:480
+  # source://irb//irb/ruby-lex.rb#480
   def take_corresponding_syntax_to_kw_do(tokens, index); end
 
   private
 
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/ruby-lex.rb:840
+  # source://irb//irb/ruby-lex.rb#840
   def heredoc_scope?; end
 
   # @return [Boolean]
   #
-  # source://RUBY_ROOT/irb/ruby-lex.rb:845
+  # source://irb//irb/ruby-lex.rb#845
   def in_keyword_case_scope?; end
 
   class << self
-    # source://RUBY_ROOT/irb/ruby-lex.rb:33
+    # source://irb//irb/ruby-lex.rb#33
     def compile_with_errors_suppressed(code, line_no: T.unsafe(nil)); end
 
-    # source://RUBY_ROOT/irb/ruby-lex.rb:139
+    # source://irb//irb/ruby-lex.rb#139
     def ripper_lex_without_warning(code, context: T.unsafe(nil)); end
   end
 end
 
-# source://RUBY_ROOT/irb/ruby-lex.rb:130
+# source://irb//irb/ruby-lex.rb#130
 RubyLex::ERROR_TOKENS = T.let(T.unsafe(nil), Array)
 
 class RubyLex::TerminateLineInput < ::StandardError
   # @return [TerminateLineInput] a new instance of TerminateLineInput
   #
-  # source://RUBY_ROOT/irb/ruby-lex.rb:20
+  # source://irb//irb/ruby-lex.rb#20
   def initialize; end
 end

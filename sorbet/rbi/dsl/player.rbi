@@ -9,6 +9,21 @@ class Player
   extend CommonRelationMethods
   extend GeneratedRelationMethods
 
+  sig { params(unencrypted_password: T.untyped).returns(T.untyped) }
+  def authenticate(unencrypted_password); end
+
+  sig { params(unencrypted_password: T.untyped).returns(T.untyped) }
+  def authenticate_password(unencrypted_password); end
+
+  sig { returns(T.untyped) }
+  def password; end
+
+  sig { params(unencrypted_password: T.untyped).returns(T.untyped) }
+  def password=(unencrypted_password); end
+
+  sig { params(unencrypted_password: T.untyped).returns(T.untyped) }
+  def password_confirmation=(unencrypted_password); end
+
   private
 
   sig { returns(NilClass) }
@@ -400,10 +415,10 @@ class Player
     sig { void }
     def created_at_will_change!; end
 
-    sig { returns(T.nilable(::String)) }
+    sig { returns(::String) }
     def email; end
 
-    sig { params(value: T.nilable(::String)).returns(T.nilable(::String)) }
+    sig { params(value: ::String).returns(::String) }
     def email=(value); end
 
     sig { returns(T::Boolean) }
@@ -418,10 +433,10 @@ class Player
     sig { returns(T::Boolean) }
     def email_came_from_user?; end
 
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
+    sig { returns(T.nilable([::String, ::String])) }
     def email_change; end
 
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
+    sig { returns(T.nilable([::String, ::String])) }
     def email_change_to_be_saved; end
 
     sig { returns(T::Boolean) }
@@ -430,7 +445,7 @@ class Player
     sig { returns(T.nilable(::String)) }
     def email_in_database; end
 
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
+    sig { returns(T.nilable([::String, ::String])) }
     def email_previous_change; end
 
     sig { returns(T::Boolean) }
@@ -535,6 +550,51 @@ class Player
     sig { void }
     def name_will_change!; end
 
+    sig { returns(::String) }
+    def password; end
+
+    sig { params(value: ::String).returns(::String) }
+    def password=(value); end
+
+    sig { returns(T::Boolean) }
+    def password?; end
+
+    sig { returns(T.nilable(::String)) }
+    def password_before_last_save; end
+
+    sig { returns(T.untyped) }
+    def password_before_type_cast; end
+
+    sig { returns(T::Boolean) }
+    def password_came_from_user?; end
+
+    sig { returns(T.nilable([::String, ::String])) }
+    def password_change; end
+
+    sig { returns(T.nilable([::String, ::String])) }
+    def password_change_to_be_saved; end
+
+    sig { returns(T::Boolean) }
+    def password_changed?; end
+
+    sig { returns(T.nilable(::String)) }
+    def password_in_database; end
+
+    sig { returns(T.nilable([::String, ::String])) }
+    def password_previous_change; end
+
+    sig { returns(T::Boolean) }
+    def password_previously_changed?; end
+
+    sig { returns(T.nilable(::String)) }
+    def password_previously_was; end
+
+    sig { returns(T.nilable(::String)) }
+    def password_was; end
+
+    sig { void }
+    def password_will_change!; end
+
     sig { void }
     def restore_created_at!; end
 
@@ -548,6 +608,9 @@ class Player
     def restore_name!; end
 
     sig { void }
+    def restore_password!; end
+
+    sig { void }
     def restore_updated_at!; end
 
     sig { returns(T.nilable([T.nilable(::ActiveSupport::TimeWithZone), T.nilable(::ActiveSupport::TimeWithZone)])) }
@@ -556,7 +619,7 @@ class Player
     sig { returns(T::Boolean) }
     def saved_change_to_created_at?; end
 
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
+    sig { returns(T.nilable([::String, ::String])) }
     def saved_change_to_email; end
 
     sig { returns(T::Boolean) }
@@ -573,6 +636,12 @@ class Player
 
     sig { returns(T::Boolean) }
     def saved_change_to_name?; end
+
+    sig { returns(T.nilable([::String, ::String])) }
+    def saved_change_to_password; end
+
+    sig { returns(T::Boolean) }
+    def saved_change_to_password?; end
 
     sig { returns(T.nilable([T.nilable(::ActiveSupport::TimeWithZone), T.nilable(::ActiveSupport::TimeWithZone)])) }
     def saved_change_to_updated_at; end
@@ -636,6 +705,9 @@ class Player
 
     sig { returns(T::Boolean) }
     def will_save_change_to_name?; end
+
+    sig { returns(T::Boolean) }
+    def will_save_change_to_password?; end
 
     sig { returns(T::Boolean) }
     def will_save_change_to_updated_at?; end

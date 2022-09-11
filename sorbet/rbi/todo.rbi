@@ -5,5 +5,4 @@
 # typed: false
 
 module ::DEBUGGER__::TrapInterceptor; end
-module Rails::Command::Behavior::ClassMethods; end
-module Rails::Generators::Migration::ClassMethods; end
+module URI::File; end

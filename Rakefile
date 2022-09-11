@@ -95,7 +95,9 @@ namespace :cards do
     all_info = JSON.parse(source.read)['data']
 
     all_info.each do |key, value|
-      next if key == 'UST'
+      next unless key == 'DMU'
+
+      # next if key == 'UST'
 
       puts "opening up #{key}"
       boxset = create_boxset(value)

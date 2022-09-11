@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.4.3...v1.5.0) (2022-09-11)
+
+
+### Features
+
+* **flyio:** add auto deploy ([#32](https://github.com/denvermullets/ninetynine-staples/issues/32)) ([5e050c8](https://github.com/denvermullets/ninetynine-staples/commit/5e050c8c0e15272e2bc2bef2512e8adb861d9dc5))
+
 ## [1.4.3](https://github.com/denvermullets/ninetynine-staples/compare/v1.4.2...v1.4.3) (2022-09-11)
 
 

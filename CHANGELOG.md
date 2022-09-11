@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/denvermullets/ninetynine-staples/compare/v1.4.0...v1.4.1) (2022-09-11)
+
+
+### Bug Fixes
+
+* **fly.io:** comment out build task w/assets:precompile ([#28](https://github.com/denvermullets/ninetynine-staples/issues/28)) ([8b32ad7](https://github.com/denvermullets/ninetynine-staples/commit/8b32ad73d0e099cc7dfcfa85f72a0e9a0bd16501))
+
 # [1.4.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.3.0...v1.4.0) (2022-09-11)
 
 

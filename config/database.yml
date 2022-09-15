@@ -83,7 +83,7 @@ test:
 #
 production:
   <<: *default
-  # url: <%= ENV['RENDER_DATABASE_URL'] %>
-  database: ninetynine_staples
-  username: ninetynine_staples
-  password: <%= ENV["NINETYNINE_STAPLES_DATABASE_PASSWORD"] %>
+  url: <%= ENV['RENDER_DATABASE_URL'] %>
+  # database: ninetynine_staples
+  # username: ninetynine_staples
+  # password: <%= ENV["NINETYNINE_STAPLES_DATABASE_PASSWORD"] %>

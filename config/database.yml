@@ -24,7 +24,7 @@ default: &default
 development:
   <<: *default
   database: ninetynine_staples
-  database: staples
+  # database: staples
   # url: <%= ENV['RENDER_DATABASE_URL'] %>
 
   # The specified database role being used to connect to postgres.

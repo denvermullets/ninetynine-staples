@@ -24,8 +24,8 @@ default: &default
 development:
   <<: *default
   database: ninetynine_staples
-  # database: staples
-  # url: <%= ENV['DATABASE_URL'] %>
+  database: staples
+  # url: <%= ENV['RENDER_DATABASE_URL'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -83,7 +83,7 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['RENDER_DATABASE_URL'] %>
-  # database: ninetynine_staples
-  # username: ninetynine_staples
-  # password: <%= ENV["NINETYNINE_STAPLES_DATABASE_PASSWORD"] %>
+  # url: <%= ENV['RENDER_DATABASE_URL'] %>
+  database: ninetynine_staples
+  username: ninetynine_staples
+  password: <%= ENV["NINETYNINE_STAPLES_DATABASE_PASSWORD"] %>

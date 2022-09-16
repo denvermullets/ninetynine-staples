@@ -88,7 +88,7 @@ namespace :cards do
     all_info = JSON.parse(source.read)['data']
 
     all_info.each do |key, value|
-      next unless key == 'DMU'
+      next unless key == '2X2'
       # next if key == 'UST'
 
       puts "opening up #{key}"

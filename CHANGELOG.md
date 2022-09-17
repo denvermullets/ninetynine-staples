@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/denvermullets/ninetynine-staples/compare/v1.6.0...v1.6.1) (2022-09-17)
+
+
+### Bug Fixes
+
+* **sidekiq:** reduce concurrency for sidekiq ([#50](https://github.com/denvermullets/ninetynine-staples/issues/50)) ([204819e](https://github.com/denvermullets/ninetynine-staples/commit/204819ed6079b1731b4bc984cec530731456f044))
+
 # [1.6.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.5.0...v1.6.0) (2022-09-17)
 
 

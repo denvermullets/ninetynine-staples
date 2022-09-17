@@ -14,7 +14,9 @@ gem 'pg', '~> 1.1'
 gem 'pry-byebug'
 gem 'puma', '~> 5.0'
 gem 'rack-cors'
+gem 'redis'
 gem 'rubocop'
+gem 'sidekiq'
 gem 'sorbet', :group => :development
 gem 'sorbet-runtime'
 gem 'tapioca', require: false, :group => :development
@@ -23,7 +25,6 @@ gem 'tapioca', require: false, :group => :development
 # gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem 'kredis'

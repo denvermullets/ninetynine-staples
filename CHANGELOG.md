@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.5.0...v1.6.0) (2022-09-17)
+
+
+### Features
+
+* **sidekiq:** add sidekiq to try out alt ingest, nin-46 ([#48](https://github.com/denvermullets/ninetynine-staples/issues/48)) ([c6ae2a5](https://github.com/denvermullets/ninetynine-staples/commit/c6ae2a55a3161a6f11653d04585571775c44d218))
+
 # [1.5.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.4.3...v1.5.0) (2022-09-11)
 
 

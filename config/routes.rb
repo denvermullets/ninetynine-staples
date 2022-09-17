@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       resources :collections
       resources :collection_magic_cards
       get 'collection/:id/cards', to: 'collection_magic_cards#show', as: :collection_cards
+      get 'ingest', to: 'ingest#ingest_cards', as: :ingest_cards
     end
   end
 end

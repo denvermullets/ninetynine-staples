@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/denvermullets/ninetynine-staples/compare/v1.6.1...v1.6.2) (2022-09-18)
+
+
+### Bug Fixes
+
+* **boxsets:** ignore sets w/o cards in the db ([#54](https://github.com/denvermullets/ninetynine-staples/issues/54)) ([6a0af10](https://github.com/denvermullets/ninetynine-staples/commit/6a0af10f63039cbaf6d207add7c477d8de16cbad))
+
 ## [1.6.1](https://github.com/denvermullets/ninetynine-staples/compare/v1.6.0...v1.6.1) (2022-09-17)
 
 

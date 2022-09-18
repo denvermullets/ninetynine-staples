@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/denvermullets/ninetynine-staples/compare/v1.6.2...v1.6.3) (2022-09-18)
+
+
+### Bug Fixes
+
+* **boxsets:** add check for empty sets ([#56](https://github.com/denvermullets/ninetynine-staples/issues/56)) ([4aad629](https://github.com/denvermullets/ninetynine-staples/commit/4aad6294af6020ad8370233481e0483c5ab37744))
+
 ## [1.6.2](https://github.com/denvermullets/ninetynine-staples/compare/v1.6.1...v1.6.2) (2022-09-18)
 
 

@@ -9,7 +9,8 @@ module Api
 
       sig { returns(String) }
       def index
-        boxsets = Boxset.all.order(release_date: :desc).where.not(total_set_size: 0)
+        boxsets = Boxset.order(release_date: :desc).includes(:magic_cards).where.not(magic_cards: { id: nil })
+                        .where.not(total_set_size: 0)
 
         render json: boxsets
       end

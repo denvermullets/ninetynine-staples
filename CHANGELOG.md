@@ -1,3 +1,10 @@
+## [1.6.4](https://github.com/denvermullets/ninetynine-staples/compare/v1.6.3...v1.6.4) (2022-09-18)
+
+
+### Bug Fixes
+
+* **build:** add build script ([#58](https://github.com/denvermullets/ninetynine-staples/issues/58)) ([be60d42](https://github.com/denvermullets/ninetynine-staples/commit/be60d42c006faa97f1c7ed54a84cf0492a6c793d))
+
 ## [1.6.3](https://github.com/denvermullets/ninetynine-staples/compare/v1.6.2...v1.6.3) (2022-09-18)
 
 

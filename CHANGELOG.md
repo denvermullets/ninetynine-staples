@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.6.4...v1.7.0) (2022-09-20)
+
+
+### Features
+
+* **collection:** add foils to collection, nin-52 ([#60](https://github.com/denvermullets/ninetynine-staples/issues/60)) ([50f77e6](https://github.com/denvermullets/ninetynine-staples/commit/50f77e60fbdd6807c9f7a2ed32453d76b9e16bad))
+
 ## [1.6.4](https://github.com/denvermullets/ninetynine-staples/compare/v1.6.3...v1.6.4) (2022-09-18)
 
 

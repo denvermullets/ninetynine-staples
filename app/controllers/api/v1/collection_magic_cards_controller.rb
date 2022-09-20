@@ -37,7 +37,9 @@ module Api
       def collection_magic_card_params
         collection_magic_card_params = T.cast(params.require(:collection_magic_card), ActionController::Parameters)
 
-        collection_magic_card_params.permit(:magic_card_id, :collection_id, :quantity, :condition, :notes)
+        collection_magic_card_params.permit(
+          :magic_card_id, :collection_id, :quantity, :condition, :notes, :foil_quantity
+        )
       end
 
       sig { params(magic_card: T::Hash[Symbol, T.any(Integer, T.nilable(String))]).returns(T.nilable(::CollectionMagicCard)) }

@@ -12,7 +12,7 @@ class IngestCards
     all_info = JSON.parse(source.read)['data']
 
     all_info.each do |key, value|
-      # next unless key == 'DMU'
+      # next unless key == 'DMC'
 
       next if key == 'UST'
 

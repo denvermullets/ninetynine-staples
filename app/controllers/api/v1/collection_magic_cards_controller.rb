@@ -20,7 +20,16 @@ module Api
                        CollectionMagicCard.by_id(params[:id])
                      end
 
-        render json: collection, include: :magic_card
+        render json: collection, include: {
+          magic_card: {
+            except: %i[identifiers created_at updated_at text original_text],
+            include: {
+              boxset: {
+                only: %i[name code]
+              }
+            }
+          }
+        }
       end
 
       sig { returns(String) }

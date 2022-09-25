@@ -24,13 +24,10 @@ module Api
                  magic_cards: {
                    except: %i[identifiers created_at updated_at text original_text],
                    include: {
+                     boxset: { only: %i[name code] },
                      magic_card_color_idents: {
                        except: %i[id magic_card_id color_id created_at updated_at],
-                       include: {
-                         color: {
-                           only: :name
-                         }
-                       }
+                       include: { color: { only: :name } }
                      }
                    }
                  }

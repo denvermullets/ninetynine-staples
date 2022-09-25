@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.7.0...v1.8.0) (2022-09-25)
+
+
+### Features
+
+* **collection:** update to return boxset info ([6441d26](https://github.com/denvermullets/ninetynine-staples/commit/6441d2643c57e9d3d7588860f5793e6cdd54b2be))
+
 # [1.7.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.6.4...v1.7.0) (2022-09-20)
 
 

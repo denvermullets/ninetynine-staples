@@ -1,11 +1,6 @@
-# typed: strict
-
 module Api
   module V1
     class MagicCardsController < ApplicationController
-      extend T::Sig
-
-      sig { returns(String) }
       def index
         all_cards = MagicCard.where(id: 1..100)
 

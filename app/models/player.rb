@@ -1,4 +1,6 @@
 class Player < ApplicationRecord
+  has_many :collections
+
   has_secure_password
 
   validates :email, uniqueness: { case_sensitive: false }

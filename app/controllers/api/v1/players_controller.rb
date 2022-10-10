@@ -1,13 +1,8 @@
-# typed: strict
-
 module Api
   module V1
     class PlayersController < ApplicationController
-      extend T::Sig
-
       before_action :authorized, only: [:auto_login]
 
-      sig { returns(String) }
       def create
         player = Player.create(player_params)
 
@@ -21,10 +16,9 @@ module Api
         end
       end
 
-      sig { returns(String) }
       def login
         player = Player.find_by(email: player_params[:email])
-        # binding.pry
+
         # &. is the same as player && player.method
         if player&.authenticate(player_params[:password])
           render json: { player:, token: encode_token({ player_id: player.id }) }
@@ -33,7 +27,6 @@ module Api
         end
       end
 
-      sig { returns(String) }
       def auto_login
         "hi"
         # render json: player
@@ -41,9 +34,8 @@ module Api
 
       private
 
-      sig { returns(ActionController::Parameters) }
       def player_params
-        player_params = T.cast(params.require(:player), ActionController::Parameters)
+        player_params = params.require(:player)
 
         player_params.permit(:username, :email, :password)
       end

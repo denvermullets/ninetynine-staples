@@ -17,9 +17,11 @@ gem 'rack-cors'
 gem 'redis'
 gem 'rubocop'
 gem 'sidekiq'
-gem 'sorbet', :group => :development
-gem 'sorbet-runtime'
-gem 'tapioca', require: false, :group => :development
+
+# taking out sorbet/tapioca for now
+# gem 'sorbet', :group => :development
+# gem 'sorbet-runtime'
+# gem 'tapioca', require: false, :group => :development
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem 'jbuilder'
@@ -44,7 +46,7 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[ mri mingw x64_mingw ]
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do

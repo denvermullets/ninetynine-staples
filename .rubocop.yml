@@ -13,6 +13,10 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
+Lint/MissingSuper:
+  Exclude:
+    - 'app/services/**/*'
+
 Lint/UselessAssignment:
   Exclude:
     - 'local_gems/*/bin/*'

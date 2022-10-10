@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.8.0...v1.9.0) (2022-10-10)
+
+
+### Features
+
+* **collection:** remove sorbet, add collection filter service, nin-60, nin-51 ([#63](https://github.com/denvermullets/ninetynine-staples/issues/63)) ([5906de3](https://github.com/denvermullets/ninetynine-staples/commit/5906de3f7cc2a026f2be7c3c9412e79f7faf454a))
+
 # [1.8.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.7.0...v1.8.0) (2022-09-25)
 
 

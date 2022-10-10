@@ -25,7 +25,9 @@ Rails.application.routes.draw do
       resources :players
       post '/login', to: 'players#login', as: :player_login
       get '/auto_login', to: 'players#auto_login', as: :player_auto_login
-      resources :collections
+      resources :collections, except: %i[delete show]
+      get 'collections/:username/:id', to: 'collections#show', as: :collection_show
+      get 'collections/:username', to: 'collections#filter_options', as: :collection_filter_options
       resources :collection_magic_cards
       get 'collection/:id/cards', to: 'collection_magic_cards#show', as: :collection_cards
       get 'ingest', to: 'ingest#ingest_cards', as: :ingest_cards

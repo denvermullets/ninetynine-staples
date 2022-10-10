@@ -1,20 +1,14 @@
-# typed: true
-
 module Api
   module V1
     class BoxsetsController < ApplicationController
-      extend T::Sig
-
       skip_before_action :authorized
 
-      sig { returns(String) }
       def index
         boxsets = Boxset.order(release_date: :desc).where.not(total_set_size: 0).where(valid_cards: true)
 
         render json: boxsets
       end
 
-      sig { returns(String) }
       def show
         boxset = Boxset.includes(magic_cards: { magic_card_color_idents: :color }).find(params[:id])
 

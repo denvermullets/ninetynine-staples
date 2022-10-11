@@ -27,14 +27,13 @@ module Api
 
           render json: filtered_cards, include: {
             magic_card: {
-              except: %i[identifiers created_at updated_at text original_text],
+              only: %i[has_foil card_number image_medium rarity name border_color card_type mana_cost has_non_foil],
               include: {
                 boxset: {
                   only: %i[name code]
                 }
               }
             }
-
           }
         else
           render json: { message: 'Player and/or Collection does not exist' }, status: :not_found

@@ -25,7 +25,7 @@ module Api
             collection:, rarity: params[:rarity], color: params[:color], exact: params[:exact]
           )
 
-          render json: filtered_cards, include: {
+          render json: filtered_cards.limit(50), include: {
             magic_card: {
               only: %i[has_foil card_number image_medium rarity name border_color card_type mana_cost has_non_foil],
               include: {

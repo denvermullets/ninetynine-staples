@@ -21,11 +21,7 @@ module Api
         collection = Player.find_by(username: params[:username])&.collections&.find(params[:id])&.collection_magic_cards
 
         if collection
-          filtered_cards = Cards::CollectionFilter.call(
-            collection:, rarity: params[:rarity], color: params[:color], exact: params[:exact]
-          )
-
-          render json: filtered_cards.limit(50), include: {
+          render json: paginate(collection), include: {
             magic_card: {
               only: %i[has_foil card_number image_medium rarity name border_color card_type mana_cost has_non_foil],
               include: {
@@ -48,6 +44,25 @@ module Api
         else
           render json: { message: 'Player and/or Collections not found' }, status: :not_found
         end
+      end
+
+      def end_range
+        page = params[:page].to_i
+        quantity = params[:quantity].to_i
+        page == 1 ? quantity - 1 : (quantity * page) - 1
+      end
+
+      def paginate(collection)
+        player_collection = Cards::CollectionFilter.call(
+          collection:, rarity: params[:rarity], color: params[:color], exact: params[:exact]
+        )
+        player_collection[start_range..end_range]
+      end
+
+      def start_range
+        page = params[:page].to_i
+        quantity = params[:quantity].to_i
+        page == 1 ? 0 : quantity * (page - 1)
       end
 
       private

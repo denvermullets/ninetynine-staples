@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.9.0...v1.10.0) (2022-10-12)
+
+
+### Features
+
+* **collection:** add pagination, nin-63 ([#69](https://github.com/denvermullets/ninetynine-staples/issues/69)) ([a994f6a](https://github.com/denvermullets/ninetynine-staples/commit/a994f6a635cc6460955cf193311b34d988c456b4))
+
 # [1.9.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.8.0...v1.9.0) (2022-10-10)
 
 

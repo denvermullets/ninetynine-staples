@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.10.0...v1.11.0) (2022-10-14)
+
+
+### Features
+
+* **collection:** handle boxset filtering, nin-65 ([#71](https://github.com/denvermullets/ninetynine-staples/issues/71)) ([874b839](https://github.com/denvermullets/ninetynine-staples/commit/874b839860cc47dd9ce3eb7a9a3b236deb0cb14c))
+
 # [1.10.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.9.0...v1.10.0) (2022-10-12)
 
 

@@ -20,8 +20,14 @@ module Api
       def show
         collection = Player.find_by(username: params[:username])&.collections&.find(params[:id])&.collection_magic_cards
 
-        if collection
-          render json: paginate(collection), include: {
+        filtered_collection = if params[:boxset]
+                                collection.by_boxset(Boxset.find_by(name: params[:boxset]).id)
+                              else
+                                collection
+                              end
+
+        if filtered_collection
+          render json: paginate(filtered_collection), include: {
             magic_card: {
               only: %i[has_foil card_number image_medium rarity name border_color card_type mana_cost has_non_foil],
               include: {

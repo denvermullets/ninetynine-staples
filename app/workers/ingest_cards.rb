@@ -12,9 +12,9 @@ class IngestCards
     all_info = JSON.parse(source.read)['data']
 
     all_info.each do |key, value|
-      next unless key == 'VOW'
+      # next unless key == 'VOW'
 
-      # next if key == 'UST'
+      next if key == 'UST'
 
       puts "opening up #{key}"
       boxset = create_boxset(value)

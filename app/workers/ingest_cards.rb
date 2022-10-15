@@ -31,7 +31,7 @@ class IngestCards
           card['types'].each { |card_type| create_type(magic_card, card_type) }
           card['colors'].each { |color| create_color(magic_card, color) }
           card['colorIdentity'].each { |color| create_color_ident(magic_card, color) }
-          card['rulings'].each { |ruling| create_ruling(magic_card, ruling) }
+          # card['rulings'].each { |ruling| create_ruling(magic_card, ruling) }
 
           card['keywords'].each { |keyword| create_keywords(magic_card, keyword) } if card.key?('keywords')
         end

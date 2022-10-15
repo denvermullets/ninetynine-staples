@@ -12,7 +12,7 @@ class IngestCards
     all_info = JSON.parse(source.read)['data']
 
     all_info.each do |key, value|
-      # next unless key == 'DMC'
+      # next unless key == 'VOW'
 
       next if key == 'UST'
 
@@ -53,7 +53,7 @@ class IngestCards
 
   def create_magic_card(boxset, card)
     existing_card = MagicCard.find_by(card_uuid: card['uuid'])
-    return existing_card if existing_card
+    # return existing_card if existing_card
 
     scryfall = card['identifiers']['scryfallId'].to_s
     res = HTTParty.get("https://api.scryfall.com/cards/#{scryfall}")
@@ -71,42 +71,58 @@ class IngestCards
     # respecting scryfall rate limit requests
     sleep 0.075
 
-    MagicCard.create(
-      boxset:, name: card['name'], text: card['text'], original_text: card['originalText'],
-      power: card['power'], toughness: card['toughness'], rarity: card['rarity'], card_type: card['type'],
-      original_type: card['originalType'], edhrec_rank: card['edhrecRank'], has_foil: card['hasFoil'],
-      has_non_foil: card['hasNonFoil'], border_color: card['borderColor'],
-      converted_mana_cost: card['convertedManaCost'], flavor_text: card['flavorText'],
-      frame_version: card['frameVersion'], is_reprint: card['isReprint'], card_number: card['number'],
-      identifiers: card['identifiers'], card_uuid: card['uuid'], image_large: large,
-      image_medium: normal, image_small: small, mana_cost: card['manaCost'], mana_value: card['manaValue'],
-      face_name: card['faceName'], card_side: card.key?('otherFaceIds') ? card['otherFaceIds'].join(',') : nil
-    )
+    if existing_card
+      existing_card.update(
+        boxset:, name: card['name'], text: card['text'], original_text: card['originalText'],
+        power: card['power'], toughness: card['toughness'], rarity: card['rarity'], card_type: card['type'],
+        original_type: card['originalType'], edhrec_rank: card['edhrecRank'], has_foil: card['hasFoil'],
+        has_non_foil: card['hasNonFoil'], border_color: card['borderColor'],
+        converted_mana_cost: card['convertedManaCost'], flavor_text: card['flavorText'],
+        frame_version: card['frameVersion'], is_reprint: card['isReprint'], card_number: card['number'],
+        identifiers: card['identifiers'], card_uuid: card['uuid'], image_large: large,
+        image_medium: normal, image_small: small, mana_cost: card['manaCost'], mana_value: card['manaValue'],
+        face_name: card['faceName'], card_side: card.key?('otherFaceIds') ? card['otherFaceIds'].join(',') : nil
+      )
+
+      existing_card
+    else
+      MagicCard.create(
+        boxset:, name: card['name'], text: card['text'], original_text: card['originalText'],
+        power: card['power'], toughness: card['toughness'], rarity: card['rarity'], card_type: card['type'],
+        original_type: card['originalType'], edhrec_rank: card['edhrecRank'], has_foil: card['hasFoil'],
+        has_non_foil: card['hasNonFoil'], border_color: card['borderColor'],
+        converted_mana_cost: card['convertedManaCost'], flavor_text: card['flavorText'],
+        frame_version: card['frameVersion'], is_reprint: card['isReprint'], card_number: card['number'],
+        identifiers: card['identifiers'], card_uuid: card['uuid'], image_large: large,
+        image_medium: normal, image_small: small, mana_cost: card['manaCost'], mana_value: card['manaValue'],
+        face_name: card['faceName'], card_side: card.key?('otherFaceIds') ? card['otherFaceIds'].join(',') : nil
+      )
+    end
   end
 
-  def create_sub_type(card, sub_type)
+  def create_sub_type(magic_card, sub_type)
     find_subtype = SubType.find_by(name: sub_type) || SubType.create(name: sub_type)
-    MagicCardSubType.create(magic_card: card, sub_type: find_subtype)
+    MagicCardSubType.find_by(magic_card:, sub_type: find_subtype) || MagicCardSubType.create(magic_card:, sub_type: find_subtype)
   end
 
-  def create_supertype(card, super_type)
+  def create_supertype(magic_card, super_type)
     supertype = SuperType.find_by(name: super_type) || SuperType.create(name: super_type)
-    MagicCardSuperType.create(magic_card: card, super_type: supertype)
+    MagicCardSuperType.find_by(magic_card:, super_type: supertype) || MagicCardSuperType.create(magic_card:, super_type: supertype)
   end
 
-  def create_type(card, card_type)
+  def create_type(magic_card, card_type)
     cardtype = CardType.find_by(name: card_type) || CardType.create(name: card_type)
-    MagicCardType.find_by(magic_card: card, card_type: cardtype) || MagicCardType.create(magic_card: card, card_type: cardtype)
+    MagicCardType.find_by(magic_card:, card_type: cardtype) || MagicCardType.create(magic_card:, card_type: cardtype)
   end
 
-  def create_color(card, color)
+  def create_color(magic_card, color)
     card_color = Color.find_by(name: color) || Color.create(name: color)
-    MagicCardColor.create(color: card_color, magic_card: card)
+    MagicCardColor.find_by(color: card_color, magic_card:) || MagicCardColor.create(color: card_color, magic_card:)
   end
 
-  def create_color_ident(card, color)
+  def create_color_ident(magic_card, color)
     card_color = Color.find_by(name: color) || Color.create(name: color)
-    MagicCardColorIdent.create(color: card_color, magic_card: card)
+    MagicCardColorIdent.find_by(color: card_color, magic_card:) || MagicCardColorIdent.create(color: card_color, magic_card:)
   end
 
   def create_ruling(card, ruling)
@@ -114,8 +130,8 @@ class IngestCards
     MagicCardRuling.create(ruling: rule, magic_card: card)
   end
 
-  def create_keywords(card, word)
+  def create_keywords(magic_card, word)
     keyword = Keyword.find_by(keyword: word) || Keyword.create(keyword: word)
-    MagicCardKeyword.create(magic_card: card, keyword:)
+    MagicCardKeyword.find_by(magic_card:, keyword:) || MagicCardKeyword.create(magic_card:, keyword:)
   end
 end

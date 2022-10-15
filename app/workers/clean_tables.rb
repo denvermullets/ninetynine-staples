@@ -25,5 +25,13 @@ class CleanTables
     puts 'deleting magic card sub type'
     MagicCardSubType.all.map(&:delete)
     puts 'done deleting magic card sub type'
+
+    puts 'deleting magic card rulings'
+    MagicCardRuling.all.map(&:delete)
+    puts 'done deleting magic card rulings'
+
+    puts 'deleting rulings x2'
+    Rulings.all.map(&:delete)
+    puts 'done deleting rulings x2'
   end
 end

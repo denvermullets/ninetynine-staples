@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.11.0...v1.12.0) (2022-10-16)
+
+
+### Features
+
+* **ingest:** refactor card ingestion to use fewer resources, nin-69 ([#76](https://github.com/denvermullets/ninetynine-staples/issues/76)) ([4dd8763](https://github.com/denvermullets/ninetynine-staples/commit/4dd87638432d5946b30ddc2a99c9e864c715b567))
+
 # [1.11.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.10.0...v1.11.0) (2022-10-14)
 
 

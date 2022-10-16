@@ -30,8 +30,8 @@ class CleanTables
     MagicCardRuling.all.map(&:delete)
     puts 'done deleting magic card rulings'
 
-    puts 'deleting rulings x2'
-    Rulings.all.map(&:delete)
-    puts 'done deleting rulings x2'
+    # puts 'deleting rulings x2'
+    # Rulings.all.map(&:delete)
+    # puts 'done deleting rulings x2'
   end
 end

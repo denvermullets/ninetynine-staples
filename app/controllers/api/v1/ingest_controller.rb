@@ -7,7 +7,7 @@ module Api
         if params[:ingest]
           puts 'hi, we are going to ingest now'
 
-          IngestCards.perform_async
+          IngestSets.perform_async
         elsif params[:wipe]
           CleanTables.perform_async
         end

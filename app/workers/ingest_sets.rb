@@ -10,7 +10,7 @@ class IngestSets
     all_info = JSON.parse(source.read)['data']
 
     all_info.each do |set|
-      # next unless set['code'] == '2X2'
+      # next unless set['code'] == 'PSVC'
       next if set['code'] == 'UST'
 
       puts "opening up #{set['name']}"

@@ -44,9 +44,9 @@ class IngestSetCards
       normal = res['image_uris']['normal']
       small = res['image_uris']['small']
     elsif res && card['otherFaceIds'] && res['card_faces'][0].key?('image_uris')
-      large = res['card_faces'][0]['image_uris']['large']
-      normal = res['card_faces'][0]['image_uris']['normal']
-      small = res['card_faces'][0]['image_uris']['small']
+      large = res['card_faces'][card['side'] == 'a' ? 0 : 1]['image_uris']['large']
+      normal = res['card_faces'][card['side'] == 'a' ? 0 : 1]['image_uris']['normal']
+      small = res['card_faces'][card['side'] == 'a' ? 0 : 1]['image_uris']['small']
     end
 
     # respecting scryfall rate limit requests
@@ -62,7 +62,8 @@ class IngestSetCards
         frame_version: card['frameVersion'], is_reprint: card['isReprint'], card_number: card['number'],
         identifiers: card['identifiers'], card_uuid: card['uuid'], image_large: large,
         image_medium: normal, image_small: small, mana_cost: card['manaCost'], mana_value: card['manaValue'],
-        face_name: card['faceName'], card_side: card.key?('otherFaceIds') ? card['otherFaceIds'].join(',') : nil
+        face_name: card['faceName'], card_side: card['side'],
+        other_face_uuid: card.key?('otherFaceIds') ? card['otherFaceIds'].join(',') : nil
       )
 
       existing_card
@@ -76,7 +77,8 @@ class IngestSetCards
         frame_version: card['frameVersion'], is_reprint: card['isReprint'], card_number: card['number'],
         identifiers: card['identifiers'], card_uuid: card['uuid'], image_large: large,
         image_medium: normal, image_small: small, mana_cost: card['manaCost'], mana_value: card['manaValue'],
-        face_name: card['faceName'], card_side: card.key?('otherFaceIds') ? card['otherFaceIds'].join(',') : nil
+        face_name: card['faceName'], card_side: card['side'],
+        other_face_uuid: card.key?('otherFaceIds') ? card['otherFaceIds'].join(',') : nil
       )
     end
   end

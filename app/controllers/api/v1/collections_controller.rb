@@ -31,6 +31,7 @@ module Api
             magic_card: {
               only: %i[
                 has_foil card_number image_medium rarity name border_color card_type mana_cost has_non_foil face_name
+                foil_price normal_price card_side
               ],
               include: {
                 boxset: {

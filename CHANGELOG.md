@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.12.0...v1.13.0) (2022-10-17)
+
+
+### Features
+
+* **magicCards:** add prices to magic card model, nin-71 ([#80](https://github.com/denvermullets/ninetynine-staples/issues/80)) ([ab6b0b6](https://github.com/denvermullets/ninetynine-staples/commit/ab6b0b6c8302276bb0d561e7aa137845237b6650))
+
 # [1.12.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.11.0...v1.12.0) (2022-10-16)
 
 

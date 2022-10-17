@@ -52,6 +52,9 @@ class IngestSetCards
     # respecting scryfall rate limit requests
     sleep 0.075
 
+    price = HTTParty.get("https://mpapi.tcgplayer.com/v2/product/#{card['identifiers']['tcgplayerProductId']}/pricepoints")
+    price_points = format_price(price)
+
     if existing_card
       existing_card.update(
         boxset:, name: card['name'], text: card['text'], original_text: card['originalText'],
@@ -63,7 +66,8 @@ class IngestSetCards
         identifiers: card['identifiers'], card_uuid: card['uuid'], image_large: large,
         image_medium: normal, image_small: small, mana_cost: card['manaCost'], mana_value: card['manaValue'],
         face_name: card['faceName'], card_side: card['side'],
-        other_face_uuid: card.key?('otherFaceIds') ? card['otherFaceIds'].join(',') : nil
+        other_face_uuid: card.key?('otherFaceIds') ? card['otherFaceIds'].join(',') : nil,
+        normal_price: price_points['normal'], foil_price: price_points['foil']
       )
 
       existing_card
@@ -78,9 +82,23 @@ class IngestSetCards
         identifiers: card['identifiers'], card_uuid: card['uuid'], image_large: large,
         image_medium: normal, image_small: small, mana_cost: card['manaCost'], mana_value: card['manaValue'],
         face_name: card['faceName'], card_side: card['side'],
-        other_face_uuid: card.key?('otherFaceIds') ? card['otherFaceIds'].join(',') : nil
+        other_face_uuid: card.key?('otherFaceIds') ? card['otherFaceIds'].join(',') : nil,
+        normal_price: price_points['normal'], foil_price: price_points['foil']
       )
     end
+  end
+
+  def format_price(price_points)
+    card_prices = {}
+    price_points.each do |price_point|
+      if price_point['printingType'] == 'Normal'
+        card_prices['normal'] = price_point['marketPrice']
+      else
+        card_prices['foil'] = price_point['marketPrice']
+      end
+    end
+
+    card_prices
   end
 
   def create_sub_type(magic_card, sub_type)

@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/denvermullets/ninetynine-staples/compare/v1.13.0...v1.13.1) (2022-10-18)
+
+
+### Bug Fixes
+
+* **ingest:** allow trigger of individual sets ([#82](https://github.com/denvermullets/ninetynine-staples/issues/82)) ([5a1225e](https://github.com/denvermullets/ninetynine-staples/commit/5a1225e88c95853a1c5e7b8a294dc60a81d67429))
+
 # [1.13.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.12.0...v1.13.0) (2022-10-17)
 
 

@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.13.1...v1.14.0) (2022-10-23)
+
+
+### Features
+
+* **collection:** sort by price default, nin-79 ([#84](https://github.com/denvermullets/ninetynine-staples/issues/84)) ([a28d9cc](https://github.com/denvermullets/ninetynine-staples/commit/a28d9cca9cf328774b6008eebec891a975160ac4))
+
 ## [1.13.1](https://github.com/denvermullets/ninetynine-staples/compare/v1.13.0...v1.13.1) (2022-10-18)
 
 

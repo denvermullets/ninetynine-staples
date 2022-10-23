@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/denvermullets/ninetynine-staples/compare/v1.14.0...v1.14.1) (2022-10-23)
+
+
+### Bug Fixes
+
+* **collection:** add sort to after collection is filtered ([#86](https://github.com/denvermullets/ninetynine-staples/issues/86)) ([7d9349b](https://github.com/denvermullets/ninetynine-staples/commit/7d9349b45979fc5560b20445340e899f7ded4545))
+
 # [1.14.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.13.1...v1.14.0) (2022-10-23)
 
 

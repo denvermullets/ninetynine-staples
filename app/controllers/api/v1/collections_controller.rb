@@ -20,14 +20,10 @@ module Api
       def show
         collection = Player.find_by(username: params[:username])&.collections&.find(params[:id])&.collection_magic_cards
 
-        filtered_collection = if params[:boxset]
-                                collection.by_boxset(Boxset.find_by(name: params[:boxset]).id)
-                              else
-                                collection
-                              end
+        filtered_list = params[:boxset] ? collection.by_boxset(Boxset.find_by(name: params[:boxset]).id) : collection
 
-        if filtered_collection
-          render json: paginate(filtered_collection), include: {
+        if filtered_list
+          render json: paginate(filtered_list), include: {
             magic_card: {
               only: %i[
                 has_foil card_number image_medium rarity name border_color card_type mana_cost has_non_foil face_name
@@ -63,9 +59,14 @@ module Api
 
       def paginate(collection)
         player_collection = Cards::CollectionFilter.call(
-          collection:, rarity: params[:rarity], color: params[:color], exact: params[:exact]
+          collection: sort_collection(collection), rarity: params[:rarity], color: params[:color], exact: params[:exact]
         )
+
         player_collection[start_range..end_range]
+      end
+
+      def sort_collection(collection)
+        collection.sort_by { |a| [a.magic_card.normal_price.to_f || 0, a.magic_card.foil_price.to_f || 0] }.reverse
       end
 
       def start_range

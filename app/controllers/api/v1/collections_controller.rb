@@ -58,11 +58,12 @@ module Api
       end
 
       def paginate(collection)
+        # filter the cards by params, then sort by price, then return paginated result range
         player_collection = Cards::CollectionFilter.call(
-          collection: sort_collection(collection), rarity: params[:rarity], color: params[:color], exact: params[:exact]
+          collection:, rarity: params[:rarity], color: params[:color], exact: params[:exact]
         )
 
-        player_collection[start_range..end_range]
+        sort_collection(player_collection)[start_range..end_range]
       end
 
       def sort_collection(collection)

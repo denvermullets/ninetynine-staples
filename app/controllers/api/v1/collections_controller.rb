@@ -67,7 +67,9 @@ module Api
       end
 
       def sort_collection(collection)
-        collection.sort_by { |a| [a.magic_card.normal_price.to_f || 0, a.magic_card.foil_price.to_f || 0] }.reverse
+        # seeing if this sort is faster for now
+        # collection.sort_by { |a| [a.magic_card.normal_price.to_f || 0, a.magic_card.foil_price.to_f || 0] }.reverse
+        collection.sort_by { |a| a.magic_card.normal_price.to_f || 0 }.reverse
       end
 
       def start_range

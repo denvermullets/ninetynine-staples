@@ -63,7 +63,7 @@ module Api
           collection:, rarity: params[:rarity], color: params[:color], exact: params[:exact]
         )
 
-        sort_collection(player_collection)[start_range..end_range]
+        player_collection.where.not(quantity: nil || 0, foil_quantity: nil || 0).order_by_price[start_range..end_range]
       end
 
       def sort_collection(collection)

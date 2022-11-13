@@ -1,3 +1,10 @@
+## [1.14.2](https://github.com/denvermullets/ninetynine-staples/compare/v1.14.1...v1.14.2) (2022-11-13)
+
+
+### Bug Fixes
+
+* **ingest:** fix boxsets not updating if information changes ([#98](https://github.com/denvermullets/ninetynine-staples/issues/98)) ([041311c](https://github.com/denvermullets/ninetynine-staples/commit/041311cf099e666229c192591ecb0feae1fd742a))
+
 ## [1.14.1](https://github.com/denvermullets/ninetynine-staples/compare/v1.14.0...v1.14.1) (2022-10-23)
 
 

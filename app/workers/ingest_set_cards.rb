@@ -12,6 +12,15 @@ class IngestSetCards
     puts "opening up #{set['name']}"
     boxset = Boxset.find_by(code: set['code'])
 
+    boxset.update(
+      code: set['code'],
+      name: set['name'],
+      release_date: set['releaseDate'],
+      base_set_size: set['baseSetSize'],
+      total_set_size: set['totalSetSize'],
+      set_type: set['type']
+    )
+
     all_info['cards'].each do |card|
       # we want to make sure we only add paper cards now that there's digital only
       if card['availability'].include?('paper')

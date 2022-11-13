@@ -40,15 +40,24 @@ class IngestCards
   end
 
   def create_boxset(set)
-    Boxset.find_by(code: set['code']) ||
-      Boxset.create(
-        code: set['code'],
-        name: set['name'],
-        release_date: set['releaseDate'],
-        base_set_size: set['baseSetSize'],
-        total_set_size: set['totalSetSize'],
-        set_type: set['type']
-      )
+    boxset = Boxset.find_by(code: set['code']) ||
+             Boxset.create(
+               code: set['code'],
+               name: set['name'],
+               release_date: set['releaseDate'],
+               base_set_size: set['baseSetSize'],
+               total_set_size: set['totalSetSize'],
+               set_type: set['type']
+             )
+
+    boxset.update(
+      code: set['code'],
+      name: set['name'],
+      release_date: set['releaseDate'],
+      base_set_size: set['baseSetSize'],
+      total_set_size: set['totalSetSize'],
+      set_type: set['type']
+    )
   end
 
   def create_magic_card(boxset, card)

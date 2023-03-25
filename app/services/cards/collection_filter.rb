@@ -1,9 +1,15 @@
+# this service pulls a players collection based on sorting params
+# if there's no rarity or color specified, return whole collection (paginated)
+# if rarity is only sort option, return collection that matches rarity eg: ["rare", "common"]
+# if rarity and color specified, return collection w/filter
 module Cards
   class CollectionFilter < Service
     def initialize(collection:, rarity:, color:, exact:)
       @collection = collection
-      @rarity = rarity.nil? ? nil : rarity.downcase.split(',')
-      @colors = color.nil? ? nil : color.upcase.split(',')
+      @rarity = rarity&.downcase&.split(',')
+      @colors = color&.upcase&.split(',')
+      # i forget why i'm turning it into a boolean here but there was an issue
+      # possible to look into this and see why that was happening
       @exact_match = exact == 'yes'
     end
 

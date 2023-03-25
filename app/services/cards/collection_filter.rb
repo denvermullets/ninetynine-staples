@@ -14,25 +14,19 @@ module Cards
     end
 
     def call
-      return @collection if @rarity.nil? && @colors.nil?
+      filtered_rarity = filter_rarity_cards
+      filtered_color = filter_color_cards(filtered_rarity)
 
-      return filter_rarity_cards if !@rarity.nil? && @colors.nil?
+      return filtered_color unless @exact_match
 
-      filter_rarity = filter_rarity_cards
-      filter_color = filter_color_cards(filter_rarity)
-
-      if @exact_match
-        filter_cards(filter_color)
-      else
-        filter_color
-      end
+      filter_cards(filtered_color)
     end
 
     def filter_rarity_cards
       if @rarity.nil?
         @collection
       else
-        @collection.includes(:magic_card).where(magic_card: { rarity: @rarity })
+        @collection.left_joins(:magic_card).where(magic_cards: { rarity: @rarity })
       end
     end
 
@@ -40,7 +34,7 @@ module Cards
       if @colors.nil?
         filter_rarity
       else
-        filter_rarity.includes(magic_card: :colors).where(magic_card: { colors: { name: @colors } })
+        filter_rarity.left_joins(magic_card: { magic_card_colors: :color }).where(colors: { name: @colors })
       end
     end
 

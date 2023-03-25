@@ -1,3 +1,10 @@
+## [1.14.5](https://github.com/denvermullets/ninetynine-staples/compare/v1.14.4...v1.14.5) (2023-03-25)
+
+
+### Bug Fixes
+
+* **ingest:** account for null prices ([#107](https://github.com/denvermullets/ninetynine-staples/issues/107)) ([274adcd](https://github.com/denvermullets/ninetynine-staples/commit/274adcdca9ec55ebf548025fec5dd1a84f0a329d))
+
 ## [1.14.4](https://github.com/denvermullets/ninetynine-staples/compare/v1.14.3...v1.14.4) (2023-03-25)
 
 

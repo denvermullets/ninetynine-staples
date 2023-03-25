@@ -24,4 +24,8 @@ class CollectionMagicCard < ApplicationRecord
       .select('collection_magic_cards.*, magic_cards.normal_price, magic_cards.foil_price')
       .order(Arel.sql(order_clause))
   }
+
+  def max_price
+    [magic_card.normal_price || 0, magic_card.foil_price || 0].max
+  end
 end

@@ -1,3 +1,10 @@
+## [1.14.4](https://github.com/denvermullets/ninetynine-staples/compare/v1.14.3...v1.14.4) (2023-03-25)
+
+
+### Bug Fixes
+
+* **collection:** account for quantity when sorting ([#103](https://github.com/denvermullets/ninetynine-staples/issues/103)) ([f2ab952](https://github.com/denvermullets/ninetynine-staples/commit/f2ab95258f93a6d37c7834d4164e64fcdcc5b0ca))
+
 ## [1.14.3](https://github.com/denvermullets/ninetynine-staples/compare/v1.14.2...v1.14.3) (2023-03-25)
 
 

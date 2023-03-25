@@ -12,10 +12,12 @@ module Cards
       @page = params[:page].to_i
       @quantity = params[:quantity].to_i
       @sort_direction = params[:sort_direction] || 'desc'
+      @name = params[:search]&.downcase
     end
 
     def call
-      filtered_rarity = filter_rarity_cards
+      filtered_by_name = filter_by_name
+      filtered_rarity = filter_rarity_cards(filtered_by_name)
       filtered_color = filter_color_cards(filtered_rarity)
 
       return order_by_price(filtered_color) if @colors.nil?
@@ -23,11 +25,19 @@ module Cards
       @exact_match ? filter_cards_exact(filtered_color) : order_by_price(filtered_color)
     end
 
-    def filter_rarity_cards
-      if @rarity.nil?
+    def filter_by_name
+      if @name.blank?
         @collection
       else
-        @collection.left_joins(:magic_card).where(magic_cards: { rarity: @rarity })
+        @collection.left_joins(:magic_card).where('LOWER(magic_cards.name) LIKE ?', "%#{@name}%")
+      end
+    end
+
+    def filter_rarity_cards(filtered_by_name)
+      if @rarity.nil?
+        filtered_by_name
+      else
+        filtered_by_name.left_joins(:magic_card).where(magic_cards: { rarity: @rarity })
       end
     end
 
@@ -48,7 +58,8 @@ module Cards
                                           )
                                           .pluck(:magic_card_id)
 
-      cards.where(magic_card_id: magic_card_ids)
+      collection = cards.where(magic_card_id: magic_card_ids)
+      order_by_price(collection)
     end
 
     def order_by_price(collection)

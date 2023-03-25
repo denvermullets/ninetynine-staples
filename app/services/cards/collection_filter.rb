@@ -4,13 +4,10 @@
 # if rarity and color specified, return collection w/filter
 module Cards
   class CollectionFilter < Service
-    # def initialize(collection:, rarity:, color:, exact:, start_range:, end_range:)
     def initialize(collection:, params:)
       @collection = collection
       @rarity = params[:rarity]&.downcase&.split(',')
       @colors = params[:color]&.upcase&.split(',')
-      # i forget why i'm turning it into a boolean here but there was an issue
-      # possible to look into this and see why that was happening
       @exact_match = params[:exact] == 'yes'
       @page = params[:page].to_i
       @quantity = params[:quantity].to_i
@@ -21,9 +18,9 @@ module Cards
       filtered_rarity = filter_rarity_cards
       filtered_color = filter_color_cards(filtered_rarity)
 
-      return order_by_price(filtered_color) if @colors.nil? || !@exact_match
+      return order_by_price(filtered_color) if @colors.nil?
 
-      filter_cards(filtered_color)
+      @exact_match ? filter_cards_exact(filtered_color) : order_by_price(filtered_color)
     end
 
     def filter_rarity_cards
@@ -38,16 +35,20 @@ module Cards
       if @colors.nil?
         filter_rarity
       else
-        filter_rarity.left_joins(magic_card: { magic_card_colors: :color }).where(colors: { name: @colors })
+        filter_rarity.left_joins(magic_card: { magic_card_colors: :color }).where(colors: { name: @colors }).distinct
       end
     end
 
-    def filter_cards(filtered_color)
-      # Exact match scenario
-      filtered_color.joins(magic_card: :magic_card_colors)
-                    .select('magic_cards.*, collection_magic_cards.*')
-                    .group('magic_cards.id', 'collection_magic_cards.id')
-                    .having('ARRAY_AGG(colors.name ORDER BY colors.name) = ARRAY[?]::varchar[]', @colors.sort)
+    def filter_cards_exact(cards)
+      magic_card_ids = MagicCardColorIdent.select(:magic_card_id)
+                                          .group(:magic_card_id)
+                                          .having(
+                                            "ARRAY_TO_STRING(ARRAY_AGG(DISTINCT color_id), ',') = ARRAY_TO_STRING(ARRAY[?]::integer[], ',')",
+                                            Color.where(name: @colors).pluck(:id)
+                                          )
+                                          .pluck(:magic_card_id)
+
+      cards.where(magic_card_id: magic_card_ids)
     end
 
     def order_by_price(collection)

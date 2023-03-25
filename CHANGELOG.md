@@ -1,3 +1,10 @@
+## [1.14.3](https://github.com/denvermullets/ninetynine-staples/compare/v1.14.2...v1.14.3) (2023-03-25)
+
+
+### Bug Fixes
+
+* **collection:** sorts collection by price, foil/normal mixed, nin-79 ([#101](https://github.com/denvermullets/ninetynine-staples/issues/101)) ([105977a](https://github.com/denvermullets/ninetynine-staples/commit/105977a52745f618c4746d479639639e730e8596))
+
 ## [1.14.2](https://github.com/denvermullets/ninetynine-staples/compare/v1.14.1...v1.14.2) (2022-11-13)
 
 

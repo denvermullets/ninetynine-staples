@@ -101,9 +101,9 @@ class IngestSetCards
     card_prices = {}
     price_points.each do |price_point|
       if price_point['printingType'] == 'Normal'
-        card_prices['normal'] = price_point['marketPrice']
+        card_prices['normal'] = price_point['marketPrice'] || 0.0
       else
-        card_prices['foil'] = price_point['marketPrice']
+        card_prices['foil'] = price_point['marketPrice'] || 0.0
       end
     end
 

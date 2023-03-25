@@ -52,9 +52,10 @@ module Cards
     end
 
     def order_by_price(collection)
-      player_collection = collection.sorted_by_combined_prices(direction: @sort_direction)
+      sorted_collection = collection.sort_by(&:max_price)
+      sorted_collection.reverse! if @sort_direction == 'desc'
 
-      player_collection.where.not(quantity: nil || 0, foil_quantity: nil || 0)[start_range..end_range]
+      sorted_collection.select { |card| normal_quantity(card) || foil_quantity(card) }[start_range..end_range]
     end
 
     def start_range
@@ -63,6 +64,14 @@ module Cards
 
     def end_range
       @page == 1 ? @quantity - 1 : (@quantity * @page) - 1
+    end
+
+    def normal_quantity(card)
+      card.quantity.present? && card.quantity.positive?
+    end
+
+    def foil_quantity(card)
+      card.foil_quantity.present? && card.foil_quantity.positive?
     end
   end
 end

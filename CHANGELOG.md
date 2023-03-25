@@ -1,3 +1,16 @@
+# [1.15.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.14.5...v1.15.0) (2023-03-25)
+
+
+### Bug Fixes
+
+* **collections:** fix filtering by set/color/rarity ([#109](https://github.com/denvermullets/ninetynine-staples/issues/109)) ([e1da1bb](https://github.com/denvermullets/ninetynine-staples/commit/e1da1bbcecea5493094c9f0d9ab576068edc451b))
+* **collection:** sorts by price, color, rarity, and set ([#110](https://github.com/denvermullets/ninetynine-staples/issues/110)) ([1c3f508](https://github.com/denvermullets/ninetynine-staples/commit/1c3f508114c1103fd1cc6c2447c1f7acd180758f))
+
+
+### Features
+
+* **collections:** handle basic name search, nin-16 ([#111](https://github.com/denvermullets/ninetynine-staples/issues/111)) ([aade7cf](https://github.com/denvermullets/ninetynine-staples/commit/aade7cf749fc38611bec8aa21b0ae63ccff29e87))
+
 ## [1.14.5](https://github.com/denvermullets/ninetynine-staples/compare/v1.14.4...v1.14.5) (2023-03-25)
 
 

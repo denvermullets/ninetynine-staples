@@ -1,5 +1,7 @@
 # this service pulls a players collection based on sorting params
 # if there's no rarity or color specified, return whole collection (paginated)
+# if rarity is only sort option, return collection that matches rarity eg: ["rare", "common"]
+# if rarity and color specified, return collection w/filter
 module Cards
   class CollectionFilter < Service
     def initialize(collection:, rarity:, color:, exact:)

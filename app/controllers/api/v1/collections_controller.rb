@@ -51,31 +51,28 @@ module Api
         end
       end
 
-      def end_range
-        page = params[:page].to_i
-        quantity = params[:quantity].to_i
-        page == 1 ? quantity - 1 : (quantity * page) - 1
-      end
-
       def paginate(collection)
         # filter the cards by params, then sort by price, then return paginated result range
         player_collection = Cards::CollectionFilter.call(
           collection:, rarity: params[:rarity], color: params[:color], exact: params[:exact]
         )
 
-        player_collection.where.not(quantity: nil || 0, foil_quantity: nil || 0)[start_range..end_range]
-      end
+        sort_direction = params[:sort_direction] || 'desc'
+        sorted_player_collection = player_collection.sorted_by_combined_prices(direction: sort_direction)
 
-      def sort_collection(collection)
-        # seeing if this sort is faster for now
-        # collection.sort_by { |a| [a.magic_card.normal_price.to_f || 0, a.magic_card.foil_price.to_f || 0] }.reverse
-        collection.sort_by { |a| a.magic_card.normal_price.to_f || 0 }.reverse
+        sorted_player_collection.where.not(quantity: nil || 0, foil_quantity: nil || 0)[start_range..end_range]
       end
 
       def start_range
         page = params[:page].to_i
         quantity = params[:quantity].to_i
         page == 1 ? 0 : quantity * (page - 1)
+      end
+
+      def end_range
+        page = params[:page].to_i
+        quantity = params[:quantity].to_i
+        page == 1 ? quantity - 1 : (quantity * page) - 1
       end
 
       private

@@ -8,7 +8,7 @@ module Cards
       @collection = collection
       @rarity = params[:rarity]&.downcase&.split(',')
       @colors = params[:color]&.upcase&.split(',')
-      @exact_match = params[:exact] == 'yes'
+      @exact = params[:exact] == 'yes'
       @page = params[:page].to_i
       @quantity = params[:quantity].to_i
       @sort_direction = params[:sort_direction] || 'desc'
@@ -20,9 +20,9 @@ module Cards
       filtered_rarity = filter_rarity_cards(filtered_by_name)
       filtered_color = filter_color_cards(filtered_rarity)
 
-      return order_by_price(filtered_color) if @colors.nil?
+      return filtered_color.order(total_value: :desc)[start_range..end_range] if @colors.nil?
 
-      @exact_match ? filter_cards_exact(filtered_color) : order_by_price(filtered_color)
+      @exact ? filter_cards_exact(filtered_color) : filtered_color.order(total_value: :desc)[start_range..end_range]
     end
 
     def filter_by_name
@@ -58,31 +58,16 @@ module Cards
                                           )
                                           .pluck(:magic_card_id)
 
-      collection = cards.where(magic_card_id: magic_card_ids)
-      order_by_price(collection)
+      cards.where(magic_card_id: magic_card_ids).order(total_value: :desc)[start_range..end_range]
     end
 
-    def order_by_price(collection)
-      sorted_collection = collection.sort_by(&:max_price)
-      sorted_collection.reverse! if @sort_direction == 'desc'
-
-      sorted_collection.select { |card| normal_quantity(card) || foil_quantity(card) }[start_range..end_range]
-    end
-
+    # start range / end range is pagination basically
     def start_range
       @page == 1 ? 0 : @quantity * (@page - 1)
     end
 
     def end_range
       @page == 1 ? @quantity - 1 : (@quantity * @page) - 1
-    end
-
-    def normal_quantity(card)
-      card.quantity.present? && card.quantity.positive?
-    end
-
-    def foil_quantity(card)
-      card.foil_quantity.present? && card.foil_quantity.positive?
     end
   end
 end

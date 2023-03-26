@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.15.0...v1.16.0) (2023-03-26)
+
+
+### Features
+
+* **collections:** add value to collections, nin-73 ([#113](https://github.com/denvermullets/ninetynine-staples/issues/113)) ([522372e](https://github.com/denvermullets/ninetynine-staples/commit/522372e771aed437f0a70cdc566b4e3e87f9cdde))
+
 # [1.15.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.14.5...v1.15.0) (2023-03-25)
 
 

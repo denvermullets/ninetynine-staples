@@ -49,14 +49,15 @@ module Cards
     def update_existing_collection_value(record, old_value)
       collection = Collection.find(@collection_id)
       current_total = collection.total_value || 0
+      record_total_value = record.total_value || 0
 
       # calculating if we need to add or subtract the value
-      if old_value < record.total_value
-        collection.update(total_value: current_total + (record.total_value - old_value))
+      if old_value < record_total_value
+        collection.update(total_value: current_total + (record_total_value - old_value))
       else
-        # if record.total_value = 0 we need to remove the old_value
-        # otherwise we're probably ok to do old_value - record.total_value
-        collection.update(total_value: current_total - calculate_value_change(old_value, record.total_value))
+        # if record_total_value = 0 we need to remove the old_value
+        # otherwise we're probably ok to do old_value - record_total_value
+        collection.update(total_value: current_total - calculate_value_change(old_value, record_total_value))
       end
     end
 

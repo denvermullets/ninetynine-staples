@@ -78,6 +78,8 @@ class IngestSetCards
         other_face_uuid: card.key?('otherFaceIds') ? card['otherFaceIds'].join(',') : nil,
         normal_price: price_points['normal'], foil_price: price_points['foil']
       )
+      # kick off update of collections
+      QueUpdateCollectionValues.perform_async(existing_card.id)
 
       existing_card
     else

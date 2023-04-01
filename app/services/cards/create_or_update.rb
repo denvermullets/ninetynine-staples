@@ -34,7 +34,7 @@ module Cards
 
     def update_record(record)
       record.update(@card_params)
-      old_total_value = record.total_value
+      old_total_value = record.total_value || 0
       record.update(total_value: calculate_value(record, @card_info))
 
       update_existing_collection_value(record, old_total_value)

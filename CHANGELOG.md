@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.16.0...v1.17.0) (2023-04-01)
+
+
+### Features
+
+* **collection:** add worker to update collection price when card is ingested, nin-87 ([#115](https://github.com/denvermullets/ninetynine-staples/issues/115)) ([59defd6](https://github.com/denvermullets/ninetynine-staples/commit/59defd6bd0f2865fcca95a98cd08ff77dda17c97))
+
 # [1.16.0](https://github.com/denvermullets/ninetynine-staples/compare/v1.15.0...v1.16.0) (2023-03-26)
 
 

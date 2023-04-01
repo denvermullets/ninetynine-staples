@@ -1,3 +1,10 @@
+## [1.17.2](https://github.com/denvermullets/ninetynine-staples/compare/v1.17.1...v1.17.2) (2023-04-01)
+
+
+### Bug Fixes
+
+* **collection:** update total_value if nil ([#119](https://github.com/denvermullets/ninetynine-staples/issues/119)) ([426f6eb](https://github.com/denvermullets/ninetynine-staples/commit/426f6eb39581f7affed8b5fe48854dae55b5e23b))
+
 ## [1.17.1](https://github.com/denvermullets/ninetynine-staples/compare/v1.17.0...v1.17.1) (2023-04-01)
 
 

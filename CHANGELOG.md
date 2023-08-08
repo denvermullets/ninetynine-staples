@@ -1,3 +1,10 @@
+## [1.17.3](https://github.com/denvermullets/ninetynine-staples/compare/v1.17.2...v1.17.3) (2023-08-08)
+
+
+### Bug Fixes
+
+* **ingest:** ignore case when searching for artist name ([#121](https://github.com/denvermullets/ninetynine-staples/issues/121)) ([2ffde10](https://github.com/denvermullets/ninetynine-staples/commit/2ffde10726fa803790c4c4ecdc2a2f48e06482e4))
+
 ## [1.17.2](https://github.com/denvermullets/ninetynine-staples/compare/v1.17.1...v1.17.2) (2023-04-01)
 
 

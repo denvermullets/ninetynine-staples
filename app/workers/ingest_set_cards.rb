@@ -27,7 +27,7 @@ class IngestSetCards
         puts "working on card #{card['name']}"
         magic_card = create_magic_card(boxset, card)
         magic_card.boxset.update(valid_cards: true)
-        artist = Artist.find_by(name: card['artist']) || Artist.create(name: card['artist'])
+        artist = Artist.where('LOWER(name) = LOWER(?)', card['artist']).first || Artist.create(name: card['artist'])
         MagicCardArtist.find_by(artist:, magic_card:) || MagicCardArtist.create(artist:, magic_card:)
         card['subtypes'].each { |sub_type| create_sub_type(magic_card, sub_type) }
         card['supertypes'].each { |super_type| create_supertype(magic_card, super_type) }
